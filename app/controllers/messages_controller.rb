@@ -13,8 +13,9 @@ class MessagesController < ApplicationController
   end
 
   def create
-    # double check user_id assignment alongside message_params
-    @message = @conversation.messages.new(message_params, user_id: current_user.id)
+    @message = @conversation.messages.new(message_params)
+    # double check user_id assignment
+    @message.user_id = current_user.id
     if @message.save
       redirect_to conversation_messages_path(@conversation)
     else
@@ -25,7 +26,7 @@ class MessagesController < ApplicationController
 
   private
     def message_params
-      params.require(:message).permit(:body, :user_id)
+      params.require(:message).permit(:body)
     end
 
 end

@@ -11,7 +11,7 @@ class ConversationsController < ApplicationController
       @conversation = Conversation.new(conversation_params)
       if !@conversation.save
         @errors = @conversation.errors.full_messages
-        redirect_to # conversation create route
+        redirect_to conversation_messages_path(@conversation)
       end
     end
     redirect_to conversation_messages_path(@conversation)
