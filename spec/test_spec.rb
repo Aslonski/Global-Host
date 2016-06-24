@@ -8,4 +8,8 @@ describe "test" do
   it "compares two numbers" do
     expect(2==2).to be(true)
   end
+
+  it "compares two strings" do
+    expect("LOL").to eq("LOL")
+  end
 end
