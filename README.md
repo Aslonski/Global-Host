@@ -20,7 +20,7 @@ DBC - Final Project
 
 Global Host links city guides and visitors.
 
-### How to instal the code locally
+### How to install the code locally
 
 1. Clone the repository.
 2. Install the required gems: `bundle install`.
