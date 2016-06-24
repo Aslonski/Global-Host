@@ -1,0 +1,17 @@
+<div class="mailbox">
+  <h1>Your Messages</h1>
+
+  <div class="conversations">
+    <% @conversations.each do |conversation| %>
+    <% if conversation.sender_id == current_user.id || conversation.recipient_id == current_user.id %>
+      <!-- is the preceding line necessary??? -->
+      <% if conversation.sender_id == current_user.id %>
+        <% recipient = User.find(conversation.recipient_id) %>
+      <% else %>
+        <% recipient = User.find(conversation.sender_id) %>
+      <% end %>
+      <%= link_to recipient.first_name, conversation_messages_path(conversation) %>
+    <% end %>
+  </div>
+
+</div>
