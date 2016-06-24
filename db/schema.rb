@@ -33,9 +33,9 @@ ActiveRecord::Schema.define(version: 20160624184130) do
     t.text     "body"
     t.integer  "conversation_id"
     t.integer  "user_id"
-    t.boolean  "read"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.boolean  "read",            default: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
   end
 
   create_table "user_interests", force: :cascade do |t|

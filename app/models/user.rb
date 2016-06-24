@@ -5,7 +5,8 @@ class User < ActiveRecord::Base
 
   has_many :started_conversations, foreign_key: :sender_id, class_name: "Conversation"
   has_many :continued_conversations, foreign_key: :recipient_id, class_name: "Conversation"
-  has_many :messages, through: :conversations
+  # is this next association necessary?
+  has_many :messages
 
 	def self.hosts
 		where(is_host: true)
