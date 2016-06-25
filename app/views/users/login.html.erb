@@ -1,0 +1,7 @@
+<%= form_for :user, url: '/users' do |f| %>
+
+  Email: <%= f.text_field :email %>
+  Password: <%= f.password_field :password %>
+  <%= f.submit "Submit", :class => 'form-button' %>
+
+<% end %>
