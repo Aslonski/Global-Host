@@ -45,7 +45,6 @@ end
 end
 
 
-
 20.times do
 	Interest.create!(
 		name: Faker::Hipster.word
