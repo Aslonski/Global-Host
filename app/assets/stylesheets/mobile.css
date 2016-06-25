@@ -27,3 +27,9 @@
 .category-title {
   font-weight: bold;
 }
+
+.user-button {
+  position: relative;
+  text-align: center;
+  margin-bottom: 5px;
+}
