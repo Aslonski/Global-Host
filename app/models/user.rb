@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+
   has_many :visitor_itineraries, foreign_key: "visitor_id", class_name: "Itinerary"
   has_many :host_itineraries, foreign_key: "host_id", class_name: "Itinerary"
 
@@ -12,6 +13,10 @@ class User < ActiveRecord::Base
   has_many :continued_conversations, foreign_key: :recipient_id, class_name: "Conversation"
   # is this next association necessary?
   has_many :messages
+
+	validates_presence_of :first_name, :last_name, :email, :city, :state_province, :country, :personal_info, :language, :gender
+
+	validates_uniqueness_of :email
 
 	def self.hosts
 		where(is_host: true)

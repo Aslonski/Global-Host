@@ -1,8 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe Message, type: :model do
-  let(:patrick) {User.create!(first_name: "Patrick", last_name: "DeWitte", city: "Chicago", state_province: "IL", country: "USA", personal_info: "Is a cool guy", language: "English", gender: "male", is_host: false)}
-  let(:andrey) {User.create!(first_name: "Andrey", last_name: "Slonski", city: "Cincinatti", state_province: "OH", country: "USA", personal_info: "Is a cool guy too", language: "English", gender: "male", is_host: true)}
+  let(:patrick) {User.create!(first_name: "Patrick", last_name: "DeWitte", city: "Chicago",
+  email: "p@p.p", state_province: "IL", country: "USA", personal_info: "Is a cool guy", language: "English", gender: "male", is_host: false)}
+  let(:andrey) {User.create!(first_name: "Andrey", last_name: "Slonski", city: "Cincinatti",
+  email: "a@a.a", state_province: "OH", country: "USA", personal_info: "Is a cool guy too", language: "English", gender: "male", is_host: true)}
 
   let(:conversation) {Conversation.create(sender: patrick, recipient: andrey)}
 
@@ -10,15 +12,15 @@ RSpec.describe Message, type: :model do
 
   describe "Message validations" do
     it "is not valid without a body" do
-      Message.new(:body => "").should_not be_valid
+      expect(Message.new(:body => "")).to_not be_valid
     end
 
     it "is not valid without a conversation id" do
-      Message.new(:conversation_id => "").should_not be_valid
+      expect(Message.new(:conversation_id => "")).to_not be_valid
     end
 
     it "is not valid without a user id" do
-      Message.new(:user_id => "").should_not be_valid
+      expect(Message.new(:user_id => "")).to_not be_valid
     end
   end
 
