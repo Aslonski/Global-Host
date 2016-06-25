@@ -2,6 +2,16 @@ class UsersController < ApplicationController
 
   before_filter 'authorize', :only => [:edit, :delete]
 
+  def index
+    @users = User.all
+    if params[:search]
+      @users = User.search(params[:search])
+    else
+      @users = User.all
+    end
+  end
+  
+
   def new
   end
 
@@ -22,6 +32,8 @@ class UsersController < ApplicationController
 
   def edit
   end
+
+ 
 
   private
 
