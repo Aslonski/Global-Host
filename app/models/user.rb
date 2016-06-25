@@ -27,12 +27,10 @@ class User < ActiveRecord::Base
 	end
 
 	def self.search(search)
-		hosts.where(city: "%#{search}%")
-		
+		city_hosts = hosts.where(city: search)
+		matching_hosts = $current.possible_matches
+		city_hosts & matching_hosts
 	end
 
-	def filter_by_city(city)
-		where(city: city)
-	end
 
 end
