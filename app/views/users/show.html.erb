@@ -7,12 +7,12 @@
   <hr class="user-page-hr">
 
   <div class="user-details row">
-    <p class="col s12">Name: <%= @user.first_name %> <%= @user.last_name %></p>
-    <p class="col s12">Gender: <%= @user.gender %></p>
-    <p class="col s12">Location: <%= @user.city %>, <%= @user.state_province %>, <%= @user.country %></p>
-    <p class="col s12">Main language: <%= @user.language %></p>
-    <p class="col s12">Personal info: <%= @user.personal_info %></p>
-    <p class="col s12">Interests:
+    <p class="col s12"><span class="category-title">Name: </span><%= @user.first_name %> <%= @user.last_name %></p>
+    <p class="col s12"><span class="category-title">Gender: </span><%= @user.gender %></p>
+    <p class="col s12"><span class="category-title">Location: </span><%= @user.city %>, <%= @user.state_province %>, <%= @user.country %></p>
+    <p class="col s12"><span class="category-title">Main language: </span><%= @user.language %></p>
+    <p class="col s12"><span class="category-title">Personal info: </span><%= @user.personal_info %></p>
+    <p class="col s12"><span class="category-title">Interests: </span>
       <% @user.interests.each do  |interest| %>
         <%= interest.name + ", " %>
       <% end %>
@@ -21,8 +21,12 @@
 
   <hr class="user-page-hr">
 
- <!-- if this is user's profile, have 'update profile' button instead of 'contact me' -->
-<% if !current_user %>
+
+<% if @user == current_user %>
+  <div class="row center contact-button-div">
+    <div class="col s12"><a class="waves-effect waves-light btn">Update Profile</a></div>
+  </div>
+<% else %>
   <div class="row center contact-button-div">
     <div class="col s12"><a class="waves-effect waves-light btn">Contact Me</a></div>
   </div>
