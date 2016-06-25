@@ -2,9 +2,9 @@ require 'rails_helper'
 
 	describe User do
 
-		let! (:andrey) {User.create(first_name: "Andrey", last_name: "Slonski", password: "password", email:"a@a.a", city: "Chicago", state_province: "IL", country: "USA", personal_info: "The man", language: "English", gender: "Male", is_host: true)}
+		let! (:andrey) {User.create(first_name: "Andrey", last_name: "Slonski", password_digest: "password", email:"a@a.a", city: "Chicago", state_province: "IL", country: "USA", personal_info: "The man", language: "English", gender: "Male", is_host: true)}
 
-		let! (:patrick) {User.create(first_name: "Patrick", last_name: "Dewitte", password: "password", city: "Chicago", email:"p@p.p", state_province: "IL", country: "USA", personal_info: "The main man", language: "English", gender: "Male", is_host: true)}
+		let! (:patrick) {User.create(first_name: "Patrick", last_name: "Dewitte", password_digest: "password", city: "Chicago", email:"p@p.p", state_province: "IL", country: "USA", personal_info: "The main man", language: "English", gender: "Male", is_host: true)}
 
 		let (:users) {User.all}
 		let! (:interest) {Interest.create!(name: "music")}
@@ -30,7 +30,6 @@ require 'rails_helper'
 		it { should validate_presence_of(:language) }
 		it { should validate_presence_of(:gender) }
 
-	end
 
 		it{ should have_many(:visitor_itineraries).with_foreign_key('visitor_id').class_name('Itinerary') }
 		it{ should have_many(:host_itineraries).with_foreign_key('host_id').class_name('Itinerary') }

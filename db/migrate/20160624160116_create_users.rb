@@ -10,6 +10,7 @@ class CreateUsers < ActiveRecord::Migration
       t.text    :personal_info
       t.string  :language
       t.string  :gender
+      t.string  :password_digest
       t.boolean :is_host, default: false
 
       t.timestamps null: false
