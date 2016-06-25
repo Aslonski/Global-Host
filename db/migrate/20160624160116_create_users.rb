@@ -10,6 +10,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :language
       t.string :gender
       t.string :role
+      t.string :password_digest
 
       t.timestamps null: false
     end

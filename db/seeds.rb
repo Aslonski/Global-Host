@@ -21,6 +21,7 @@ gender = ["Male", "Female"]
 		language: "English",
 		gender: gender.sample,
 		is_host: true,
+		password_digest:'password'
 	)
 end
 
@@ -34,6 +35,7 @@ end
 		language: "English",
 		gender: gender.sample,
 		is_host: false,
+		password_digest:'password'
 	)
 end
 
