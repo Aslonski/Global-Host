@@ -1,0 +1,26 @@
+Activity.itinerary - returns the associated itinerary
+Activity.location - returns the associated location
+
+Interest.user_interests - returns a collection of associated user_interests (join table - not used)
+Interest.users - returns a collection of associated users
+
+Itinerary.activities - returns a collection of associated activities
+Itinerary.locations - returns a collection of associated locations
+Itinerary.visitor - returns the visitor that created the itinerary
+Itinerary.host - returns the host associated with the itinerary
+
+Location.activities - returns a collection of associated activities
+Location.itineraries - returns a collection of associated itineraries
+Location.travelers - returns a collection of associated visitors
+Location.natives - returns a collection of associated hosts
+
+UserInterest.user - returns the associated user (join table - not used)
+UserInterest.interest - returns the associated interest (join table - not used)
+
+User.user_interests - returns a collection of associated user_interests (join table - not used)
+User.interests - returns a list of associated interests
+User.visitor_itineraries - returns a collection of created itineraries
+User.host_itineraries - returns a collection of itineraries of associated hosts
+User.likeminded_users - returns a collection of users with shared interests
+User.hosts (class method) - returns a collection of users who are hosts
+User.possible_matches - returns a collection of users/hosts with similar interests not including the user
