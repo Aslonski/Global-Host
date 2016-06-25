@@ -27,22 +27,26 @@
         <a href="/" class="brand-logo center">Global Host</a>
         <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
         <ul class="left hide-on-med-and-down">
-          <li><a href="sass.html">Sass</a></li>
-          <li><a href="badges.html">Components</a></li>
+          <% if logged_in? %>
+              <li><%= link_to("Hello #{current_user.first_name}", user_path(current_user))%></li>
+              <li><%= link_to("Logout", session_path(current_user), method: :delete, data: {confirm: 'Are you sure you want to log out?'}) %></li>
+            <% else %>
+              <li><%= link_to("Login", new_session_path)%>  </td></li>
+              <li><%= link_to("Register", new_user_path)%></li>
+            <% end %>
       </ul>
       <ul class="side-nav" id="mobile-demo">
         <% if logged_in? %>
-            <td class="nav-buttons"><%= link_to("Hello, #{current_user.first_name}", user_path(current_user))%> </td>
+            <%= link_to("Hello #{current_user.first_name}", user_path(current_user))%>
             <%= link_to("Logout", session_path(current_user), method: :delete, data: {confirm: 'Are you sure you want to log out?'}) %>
           <% else %>
-            <td class="nav-buttons"> <%= link_to("Register", new_user_path)%> | </td>
-            <td class="nav-buttons"> <%= link_to("Login", new_session_path)%>  </td>
+            <%= link_to("Register", new_user_path)%>
+            <%= link_to("Login", new_session_path)%>
         <% end %>
       </ul>
       </div>
     </nav>
 </div>
-
 <%= yield %>
 
 </body>
