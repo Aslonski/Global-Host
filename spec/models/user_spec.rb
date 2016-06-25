@@ -1,10 +1,10 @@
 require 'rails_helper'
 
 	describe User do
-		
-		let! (:andrey) {User.create(first_name: "Andrey", last_name: "Slonski", email:"a@a.a", city: "Chicago", state_province: "IL", country: "USA", personal_info: "The man", language: "English", gender: "Male", is_host: true)}
 
-		let! (:patrick) {User.create(first_name: "Patrick", last_name: "Dewitte", city: "Chicago", email:"p@p.p", state_province: "IL", country: "USA", personal_info: "The main man", language: "English", gender: "Male", is_host: true)}
+		let! (:andrey) {User.create(first_name: "Andrey", last_name: "Slonski", password: "password", email:"a@a.a", city: "Chicago", state_province: "IL", country: "USA", personal_info: "The man", language: "English", gender: "Male", is_host: true)}
+
+		let! (:patrick) {User.create(first_name: "Patrick", last_name: "Dewitte", password: "password", city: "Chicago", email:"p@p.p", state_province: "IL", country: "USA", personal_info: "The main man", language: "English", gender: "Male", is_host: true)}
 
 		let (:users) {User.all}
 		let! (:interest) {Interest.create!(name: "music")}
