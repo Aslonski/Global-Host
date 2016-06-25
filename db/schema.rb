@@ -64,9 +64,9 @@ ActiveRecord::Schema.define(version: 20160624193251) do
     t.text     "personal_info"
     t.string   "language"
     t.string   "gender"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-    t.boolean  "is_host"
+    t.boolean  "is_host",        default: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
   end
 
 end

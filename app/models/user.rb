@@ -7,7 +7,9 @@ class User < ActiveRecord::Base
 	has_many :interests, through: :user_interests
 	has_many :likeminded_users, { through: :interests, source: :users }
 
-	validates :first_name, :last_name, :email, :city, :state_province, :country, :perosnal_info, :language, :gender, :is_host, presence: true
+	validates_presence_of :first_name, :last_name, :email, :city, :state_province, :country, :personal_info, :language, :gender
+	
+	validates_uniqueness_of :email
 
 	def self.hosts
 		where(is_host: true)
