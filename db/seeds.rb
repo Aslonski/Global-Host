@@ -56,7 +56,7 @@ end
   Itinerary.create!(
 		name: Faker::Book.genre,
 		visitor_id: rand(1..10),
-		host_id: rand(11..20),
+		host_id: rand(1..10),
 		date:rand(1..10),
 	)
 end
@@ -71,7 +71,7 @@ end
 
 10.times do
   Location.create!(
-		name: Faker::Space.company,
+		name: Faker::Hacker.abbreviation,
 		address: Faker::Address.street_address,
 		city: Faker::Address.city,
 	)
