@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+    <div class="col s12">
+      <h4 class="section-header">Add location to... </h4>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col s12">
+      <span class="activity-name"><h5>"<%= @activity.description %></span>"</h5>
+    </div>
+  </div>
+
+  <%= form_for [@itinerary, @activity, @location] do |f| %>
+    <%= f.label :name %>:
+    <%= f.text_field :name %><br>
+    <%= f.label :address %>:
+    <%= f.text_field :address %><br>
+    <%= f.label :city %>:
+    <%= f.text_field :city %><br>
+    <%= f.submit class: "waves-effect waves-light btn"%>
+  <% end %>
+
+</div>
