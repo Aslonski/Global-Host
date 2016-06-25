@@ -26,4 +26,8 @@ class User < ActiveRecord::Base
 		likeminded_users.where.not(id: self.id).distinct
 	end
 
+	def filter_by_city
+		where(city: params[:city])
+	end
+
 end
