@@ -2,7 +2,8 @@
     <table>
       <tr>
         <% if logged_in? %>
-          <td class="nav-buttons"><%= link_to("Hello, #{current_user.name}", user_path(current_user))%> </td>
+          <td class="nav-buttons"><%= link_to("Hello, #{current_user.first_name}", user_path(current_user))%> </td>
+          <%= link_to("Logout", session_path(current_user), method: :delete, data: {confirm: 'Are you sure you want to log out?'}) %>
         <% else %>
           <td class="nav-buttons"> <%= link_to("Register", new_user_path)%> | </td>
           <td class="nav-buttons"> <%= link_to("Login", new_session_path)%>  </td>
