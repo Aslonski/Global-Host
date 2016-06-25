@@ -11,14 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160624184130) do
+
+ActiveRecord::Schema.define(version: 20160624193251) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+
   create_table "conversations", force: :cascade do |t|
     t.integer  "sender_id"
     t.integer  "recipient_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  create_table "activities", force: :cascade do |t|
+    t.string   "description"
+    t.integer  "itinerary_id"
+    t.integer  "location_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
@@ -33,9 +43,26 @@ ActiveRecord::Schema.define(version: 20160624184130) do
     t.text     "body"
     t.integer  "conversation_id"
     t.integer  "user_id"
-    t.boolean  "read",            default: false
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
+    t.boolean  "read", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "itineraries", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "visitor_id"
+    t.integer  "host_id"
+    t.string   "date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "locations", force: :cascade do |t|
+    t.string   "name"
+    t.string   "address"
+    t.string   "city"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "user_interests", force: :cascade do |t|
