@@ -3,22 +3,17 @@ class UsersController < ApplicationController
   before_filter 'authorize', :only => [:edit, :delete]
 
   def index
-    @users = User.all
-    if params[:search]
+      $current = current_user
       @users = User.search(params[:search])
-    else
-      @users = User.all
-    end
   end
-  
 
   def new
   end
 
   def create
-    user = User.new(user_params)
-    if user.save
-      session[:user_id] = user.id
+    @user = User.new(user_params)
+    if @user.save
+      session[:user_id] = @user.id
       redirect_to root_path
     else
       @errors = user.errors.full_messages
@@ -33,7 +28,6 @@ class UsersController < ApplicationController
   def edit
   end
 
- 
 
   private
 
