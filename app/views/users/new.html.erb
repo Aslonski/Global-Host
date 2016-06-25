@@ -2,6 +2,28 @@
 	<div class="login-container">
 		<h1 class="user-interaction-title">Sign up!</h1>
 		<%= render '/errors' %>
-		<%= render 'form' %>
+		<%= form_for :user, url: '/users' do |f| %>
+
+		  Firs Name: <%= f.text_field :email %>
+			<br>
+		  Last Name: <%= f.password_field :password %>
+			<br>
+			City: <%= f.text_field :email %>
+			<br>
+		  State/Province: <%= f.password_field :password %>
+			<br>
+			Country: <%= f.text_field :email %>
+			<br>
+		  About Me: <%= f.password_field :password %>Email: <%= f.text_field :email %>
+			<br>
+		  Languages: <%= f.password_field :password %>Email: <%= f.text_field :email %>
+			<br>
+		  Gender: <%= f.password_field :password %>
+			<br>
+			Password: <%= f.password_field :password %>
+			<br>
+		  <%= f.submit "Submit", :class => 'form-button' %>
+
+		<% end %>
 	</div>
 </div>
