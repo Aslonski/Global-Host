@@ -5,8 +5,29 @@
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+
+    <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
 </head>
 <body>
+<div class="navbar-fixed">
+   <nav>
+      <div class="nav-wrapper">
+        <a href="/" class="brand-logo center">Global Host</a>
+        <ul id="nav-mobile" class="left hide-on-med-and-down">
+          <li><a href="#">Hamburger Menu</a></li>
+          <li><a href="#">Hamburger Menu</a></li>
+          <li><a href="#">Hamburger Menu</a></li>
+          <li><a href="#">Hamburger Menu</a></li>
+        </ul>
+      </div>
+    </nav>
+</div>
 
 <%= yield %>
 
