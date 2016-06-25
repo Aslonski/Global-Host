@@ -10,7 +10,7 @@ DBC - Final Project
   </tr>
 
   <tr>
-  <td><a href="https://github.com/phdewitte">Patrick Dewitt </a></a></td>
+  <td><a href="https://github.com/phdewitte">Patrick Dewitte </a></a></td>
   <td><a href="https://github.com/Aslonski">Andrey Slonski</a></a></td>
   <td><a href="https://github.com/rmdemp">Ryan Dempsey</a></td>
   <td><a href="https://github.com/gabezurita">Gabriel Zurita</a></td>
@@ -27,10 +27,11 @@ Global Host links city guides and visitors.
 3. Set up the database: `bundle exec rake db:setup`
 4. Start the application: `bundle exec rails server`
 
-## How to use the app ##
 ### User Stories:
 
-- As a visitor
+
+- As a Visitor
+
   - As a user I want to be able to register as a visitor or a host
   - As a visitor, I want to see a list of available hosts in my destination city
   - As a visitor, I want to be able to search for someone in my destination city who has the same interests as me.
@@ -38,7 +39,10 @@ Global Host links city guides and visitors.
   - As a visitor/host, I want to be able to contact a host (via internal message)
   - As a visitor, within a contact message, I want to be able to initiate an itinerary with a basic desired outline
   - As a visitor, I want to check back in at my accommodation to finalize the day
-- Guide/Host
+
+
+- As a Guide/Host
+
   - As a user I want to be able to register as a host to show people around my city
   - As a host, I want to be contacted by visitors who want to visit my home town.
   - As a host I want to be able to see the visitors itinerary, and edit it if needed
