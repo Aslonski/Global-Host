@@ -1,0 +1,11 @@
+<div class="messages">
+  <% @messages.each do |message| %>
+  <% user = User.find(message.user_id) %>
+    <div class="message">
+      <%= message.body %>
+    </div>
+  <% end %>
+
+  <%= render 'form' %>
+
+</div>
