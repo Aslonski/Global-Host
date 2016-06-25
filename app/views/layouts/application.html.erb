@@ -31,8 +31,13 @@
           <li><a href="badges.html">Components</a></li>
       </ul>
       <ul class="side-nav" id="mobile-demo">
-        <li><a href="sass.html">Sass</a></li>
-        <li><a href="badges.html">Components</a></li>
+        <% if logged_in? %>
+            <td class="nav-buttons"><%= link_to("Hello, #{current_user.first_name}", user_path(current_user))%> </td>
+            <%= link_to("Logout", session_path(current_user), method: :delete, data: {confirm: 'Are you sure you want to log out?'}) %>
+          <% else %>
+            <td class="nav-buttons"> <%= link_to("Register", new_user_path)%> | </td>
+            <td class="nav-buttons"> <%= link_to("Login", new_session_path)%>  </td>
+        <% end %>
       </ul>
       </div>
     </nav>
