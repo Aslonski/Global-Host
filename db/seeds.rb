@@ -23,10 +23,9 @@ gender = ["Male", "Female"]
 		country: Faker::Address.country,
 		personal_info: Faker::Hipster.paragraph,
 		language: "English",
-		password_digest: "password",
+		password_digest:'password',
 		gender: gender.sample,
-		is_host: true,
-		password_digest:'password'
+		is_host: true
 	)
 end
 
@@ -39,10 +38,9 @@ end
 		country: Faker::Address.country,
 		personal_info: Faker::Hipster.paragraph,
 		language: "English",
-		password_digest: "password",
+		password_digest:'password',
 		gender: gender.sample,
-		is_host: false,
-		password_digest:'password'
+		is_host: false
 	)
 end
 
