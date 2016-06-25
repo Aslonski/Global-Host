@@ -13,3 +13,8 @@
 li {
   list-style-type: none;
 }
+
+.activity-name {
+  font-style: italic;
+}
+
