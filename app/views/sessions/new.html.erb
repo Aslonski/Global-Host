@@ -1,9 +1,5 @@
-<div class="login-container">
-	<h1 class="user-interaction-title">Login</h1>
+<div class="container">
+	<h1 class="row">Login</h1>
   <%= render '/errors' %>
-	<%= form_tag sessions_path do %>
-	  <div>Email: <%= text_field_tag :email %></div>
-	  <div>Password: <%= password_field_tag :password %></div>
-	  <div><%= submit_tag "Submit", :class => 'form-button' %></div>
-	<% end %>
+	<%= render 'form' %>
 </div>
