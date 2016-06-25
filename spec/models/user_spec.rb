@@ -30,4 +30,13 @@ require 'rails_helper'
 		it { should validate_presence_of(:language) }
 		it { should validate_presence_of(:gender) }
 
+		it{ should have_many(:visitor_itineraries).with_foreign_key('visitor_id').class_name('Itinerary') }
+		it{ should have_many(:host_itineraries).with_foreign_key('host_id').class_name('Itinerary') }
+		it { should have_many(:user_interests) }
+		it { should have_many(:interests).through(:user_interests) }
+		it { should have_many(:likeminded_users).through(:interests).source(:users) }
+		it { should have_many(:started_conversations).with_foreign_key('sender_id').class_name('Conversation') }
+		it { should have_many(:continued_conversations).with_foreign_key('recipient_id').class_name('Conversation') }
+		it { should have_many(:messages) }
+
 	end
