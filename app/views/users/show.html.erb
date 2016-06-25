@@ -1,0 +1,31 @@
+<div class="user-info container">
+
+  <div class="user-image-container container col s12">
+    <%= image_tag "user-image-with-black-background_318-34564", class: "user-image circle responsive-img" %>
+  </div>
+
+  <hr class="user-page-hr">
+
+  <div class="user-details row">
+    <p class="col s12">Name: <%= @user.first_name %> <%= @user.last_name %></p>
+    <p class="col s12">Gender: <%= @user.gender %></p>
+    <p class="col s12">Location: <%= @user.city %>, <%= @user.state_province %>, <%= @user.country %></p>
+    <p class="col s12">Main language: <%= @user.language %></p>
+    <p class="col s12">Personal info: <%= @user.personal_info %></p>
+    <p class="col s12">Interests:
+      <% @user.interests.each do  |interest| %>
+        <%= interest.name + ", " %>
+      <% end %>
+    </p>
+  </div>
+
+  <hr class="user-page-hr">
+
+ <!-- if this is user's profile, have 'update profile' button instead of 'contact me' -->
+<% if !current_user %>
+  <div class="row center contact-button-div">
+    <div class="col s12"><a class="waves-effect waves-light btn">Contact Me</a></div>
+  </div>
+<% end %>
+
+</div>
