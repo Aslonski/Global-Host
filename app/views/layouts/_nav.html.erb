@@ -1,0 +1,16 @@
+<div class="nav-bar">
+    <table>
+      <tr>
+        <% if logged_in? %>
+          <td class="nav-buttons"><%= link_to("Hello, #{current_user.name}", user_path(current_user))%> </td>
+        <% else %>
+          <td class="nav-buttons"> <%= link_to("Register", new_user_path)%> | </td>
+          <td class="nav-buttons"> <%= link_to("Login", new_session_path)%>  </td>
+        <% end %>
+      </tr>
+    </table>
+</div>
+
+<div >
+    <a href="/"><img id="logo_nav" src="http://killertomatoes.com/app/uploads/2013/08/AKT-just-KT-logo_new1.png" alt="" /></a>
+</div>
