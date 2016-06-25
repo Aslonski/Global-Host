@@ -13,13 +13,7 @@
 		  About Me: <%= f.text_field :personal_info %>
 		  Languages: <%= f.text_field :language %>
 		  Gender: <%= f.text_field :gender %>
-			Guide Status:
-				<br>
-				<br>
-				<%= check_box_tag(:is_host) %>
-				<%= label_tag(:is_host, "(I am willing ot host)") %>
-				<br>
-				<br>
+			Guide Status: <%= f.text_field :is_host %>
 			Password: <%= f.password_field :password %>
 		  <%= f.submit "Submit", :class => 'form-button' %>
 		<% end %>
