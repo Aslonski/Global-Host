@@ -20,4 +20,10 @@ RSpec.describe Activity, type: :model do
 
   it { should belong_to(:location) }
 
+  it { should validate_presence_of(:description)}
+
+  it { should validate_presence_of(:itinerary_id)}
+
+  it { should validate_presence_of(:location_id)}
+
 end
