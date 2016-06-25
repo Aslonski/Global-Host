@@ -8,7 +8,21 @@ RSpec.describe Message, type: :model do
 
   let(:message) {conversation.messages.create!(body: "Sweet message!", conversation_id: 99, user_id: 99, read: true)}
 
-  describe "Conversation structure" do
+  describe "Message validations" do
+    it "is not valid without a body" do
+      Message.new(:body => "").should_not be_valid
+    end
+
+    it "is not valid without a conversation id" do
+      Message.new(:conversation_id => "").should_not be_valid
+    end
+
+    it "is not valid without a user id" do
+      Message.new(:user_id => "").should_not be_valid
+    end
+  end
+
+  describe "Message structure" do
     it "has a body" do
       expect(message.body).to eq("Sweet message!")
     end
@@ -21,4 +35,13 @@ RSpec.describe Message, type: :model do
       expect(message.read).to be true
     end
   end
+
+  describe "custom message time display" do
+
+  end
+
+  describe "Message associations" do
+
+  end
+
 end
