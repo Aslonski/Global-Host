@@ -1,9 +1,21 @@
+.container {
+  text-align: center;
+}
+
 .welcome-container {
   text-align: center;
 }
 
 #search-bar {
   text-align: center;
+}
+
+li {
+  list-style-type: none;
+}
+
+.activity-name {
+  font-style: italic;
 }
 
 .user-image {
