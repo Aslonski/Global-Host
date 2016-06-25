@@ -6,11 +6,27 @@ RSpec.describe Conversation, type: :model do
 
   let(:conversation) {Conversation.create(sender: patrick, recipient: andrey)}
 
-  it "is started by one user" do
-    expect(conversation.sender).to eq patrick
+  describe "Conversation validations" do
+    it "is not valid without a conversation id" do
+      Conversation.new(:sender_id => "").should_not be_valid
+    end
+
+    it "is not valid without a user id" do
+      Conversation.new(:recipient_id => "").should_not be_valid
+    end
   end
 
-  it "is continued by another user" do
-    expect(conversation.recipient).to eq andrey
+  describe "custom scope method" do
+
+  end
+
+  describe "Conversation structure" do
+    it "is started by one user" do
+      expect(conversation.sender).to eq patrick
+    end
+
+    it "is continued by another user" do
+      expect(conversation.recipient).to eq andrey
+    end
   end
 end
