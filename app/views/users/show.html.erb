@@ -21,15 +21,14 @@
 
   <hr class="user-page-hr">
 
-
-<% if @user == current_user %>
-  <div class="row center contact-button-div">
-    <div class="col s12"><a class="waves-effect waves-light btn">Update Profile</a></div>
+  <div class="col s12 user-button">
+    <% if @user == current_user %>
+        <%= link_to("Update Profile", edit_user_path, class:"waves-effect waves-light btn user-button")%>
+      </div>
+    <% else %>
+      <div class="col s12">
+        <%= link_to("Contact Me", new_conversation_message_path(rand(1..10), @user.id), class:"waves-effect waves-light btn user-button")%>
+    <% end %>
   </div>
-<% else %>
-  <div class="row center contact-button-div">
-    <div class="col s12"><a class="waves-effect waves-light btn">Contact Me</a></div>
-  </div>
-<% end %>
 
 </div>
