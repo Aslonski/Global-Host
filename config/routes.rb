@@ -11,4 +11,11 @@ Rails.application.routes.draw do
     resources :messages
   end
 
+  # this needs addressing
+  resources :itineraries do
+    resources :activities do
+      resources :locations
+    end
+  end
+
 end
