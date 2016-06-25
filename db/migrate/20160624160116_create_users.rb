@@ -11,7 +11,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string  :language
       t.string  :gender
       t.string  :password_digest
-      t.boolean :is_host, default: false
+      t.boolean :is_host
       t.string :password_digest
 
       t.timestamps null: false
