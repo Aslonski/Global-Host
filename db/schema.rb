@@ -73,16 +73,17 @@ ActiveRecord::Schema.define(version: 20160624193251) do
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
+    t.string   "email"
     t.string   "city"
     t.string   "state_province"
     t.string   "country"
     t.text     "personal_info"
     t.string   "language"
     t.string   "gender"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-    t.boolean  "is_host"
     t.string   "password_digest"
+    t.boolean  "is_host",         default: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
   end
 
 end

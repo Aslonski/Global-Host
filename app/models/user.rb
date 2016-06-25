@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
 
+	has_secure_password
+	
   has_many :visitor_itineraries, foreign_key: "visitor_id", class_name: "Itinerary"
   has_many :host_itineraries, foreign_key: "host_id", class_name: "Itinerary"
 
