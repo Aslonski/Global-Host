@@ -13,26 +13,26 @@ gender = ["Male", "Female"]
 
 5.times do User.create!(
 		first_name: Faker::Name.first_name,
-		last_name: Faker::Name.last,
+		last_name: Faker::Name.last_name,
 		city: Faker::Address.city,
-		state_province: Faker::Address.state
+		state_province: Faker::Address.state,
 		country: Faker::Address.country,
 		personal_info: Faker::Hipster.paragraph,
 		language: "English",
-		gender: gender.sample
+		gender: gender.sample,
 		is_host: true,
 	)
 end
 
 5.times do User.create!(
 		first_name: Faker::Name.first_name,
-		last_name: Faker::Name.last,
+		last_name: Faker::Name.last_name,
 		city: Faker::Address.city,
-		state_province: Faker::Address.state
+		state_province: Faker::Address.state,
 		country: Faker::Address.country,
 		personal_info: Faker::Hipster.paragraph,
 		language: "English",
-		gender: gender.sample
+		gender: gender.sample,
 		is_host: false,
 	)
 end
