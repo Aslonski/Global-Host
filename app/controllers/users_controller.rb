@@ -12,10 +12,10 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
+    @user = User.new(user_params_registration_form)
     if @user.save
       session[:user_id] = @user.id
-      redirect_to root_path
+      redirect_to users_search_path
     else
       @errors = @user.errors.full_messages
       render :new
@@ -41,6 +41,10 @@ class UsersController < ApplicationController
 
 
   private
+  # @advisor - .require does not work with materialize form
+  def user_params_registration_form
+    params.permit(:first_name, :last_name, :email, :city, :state_province, :country, :personal_info, :language, :gender, :is_host, :password)
+  end
 
   def user_params
     params.require(:user).permit(:first_name, :last_name, :email, :city, :state_province, :country, :personal_info, :language, :gender, :is_host, :password)

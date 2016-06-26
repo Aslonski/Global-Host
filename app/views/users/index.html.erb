@@ -1,12 +1,16 @@
 <div class="container">
 	<div class="row">
 		<div class="col s12">
+		<% if !@users.empty? %>
 		<% @users.each do |user| %>
 			<ul>
 				<li>
 					<%= user.first_name %>
 				</li>
 			</ul>
+		<% end %>
+		<% else %>
+			<h4>Your search for "<%= params[:search] %>" returned no hosts</h4>
 		<% end %>
 		</div>
 	</div>

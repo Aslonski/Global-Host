@@ -8,7 +8,7 @@ RSpec.describe Conversation, type: :model do
 
   let(:conversation) {Conversation.create(sender: patrick, recipient: andrey)}
 
-  describe "Conversation validations" do
+  xdescribe "Conversation validations" do
     it "is not valid without a conversation id" do
       expect(Conversation.new(:sender_id => "")).to_not be_valid
     end
