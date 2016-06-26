@@ -5,7 +5,7 @@ class MessagesController < ApplicationController
 
   def index
     @messages = @conversation.messages
-    # tutorial recommends making a new @message in the index method???
+    @message = Message.new
   end
 
   def new
