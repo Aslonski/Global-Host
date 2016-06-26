@@ -6,13 +6,21 @@
     <div class="col s12"><h5 class="section-header"><%= @itinerary.date %></h5></div>
   </div>
 
-  <ul class="list">
-    <% @activities.each do |activity| %>
-    <div class="row">
-      <div class="col s12">
-        <li><%= render partial: 'activities/act_listing', locals: { activity: activity } %></li>
+  <% if @activities.length < 1 %>
+      <div class="row">
+        <div class="col s12">
+          <%= link_to "Add an Activity", new_itinerary_activity_path(@itinerary, @activity), class: "waves-effect waves-light btn" %>
+        </div>
       </div>
-    </div>
-    </ul>
+  <% else %>
+    <ul class="list">
+      <% @activities.each do |activity| %>
+      <div class="row">
+        <div class="col s12">
+          <li><%= render partial: 'activities/act_listing', locals: { activity: activity } %></li>
+        </div>
+      </div>
+      </ul>
+    <% end %>
   <% end %>
 </div>

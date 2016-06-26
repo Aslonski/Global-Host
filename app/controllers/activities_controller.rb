@@ -1,5 +1,9 @@
 class ActivitiesController < ApplicationController
 
+  def create
+    @itinerary = Itinerary.find(params[:id])
+  end
+
   def edit
     @itinerary = Itinerary.find(params[:itinerary_id])
     @activity = @itinerary.activities.find(params[:id])
