@@ -1,14 +1,11 @@
 class ConversationsController < ApplicationController
 
-  before_action :find_recipient
-
-  def find_recipient
-    @recipient = User.find(params[:id])
-  end
+  before_action :find_recipient, except: [:index]
 
   def index
-    @users = User.all
-    @conversations = Conversation.all
+    @users = User.find(params[:id])
+    @messages = @user.messages
+    # @conversations = Conversation.all
   end
 
   def new
@@ -17,7 +14,6 @@ class ConversationsController < ApplicationController
 
     if convo.exists?
       @conversation = convo.first
-      p session.inspect
       redirect_to conversation_messages_path(@conversation)
     else
       @conversation = Conversation.create(sender_id: current_user.id, recipient_id: @recipient.id)
@@ -36,4 +32,7 @@ class ConversationsController < ApplicationController
       params.permit(:sender_id, :recipient_id)
     end
 
+    def find_recipient
+      @recipient = User.find(params[:id])
+    end
 end
