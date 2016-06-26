@@ -27,7 +27,7 @@
       </div>
     <% else %>
       <div class="col s12">
-        <%= link_to("Contact Me", new_conversation_path, class:"waves-effect waves-light btn user-button")%>
+        <%= link_to("Contact Me", conversations_path, :method => "post", locals: {user: User.find(params[:id])}, class:"waves-effect waves-light btn user-button")%>
     <% end %>
   </div>
 
