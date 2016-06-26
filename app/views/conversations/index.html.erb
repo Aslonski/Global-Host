@@ -3,8 +3,8 @@
 
   <div class="conversations">
     <ul>
-    <% @messages.each do |message| %>
-    <li><%= link_to message.conversation.recipient.first_name, conversation_messages_path(message.conversation.id)  %> - <%= message.conversation.recipient.city %> </li>
+    <% @conversations.each do |conversation| %>
+    <li><%= link_to conversation.recipient.first_name, conversation_messages_path(conversation.id)  %> - <%= conversation.recipient.city %> </li>
     </ul>
     <% end %>
   </div>

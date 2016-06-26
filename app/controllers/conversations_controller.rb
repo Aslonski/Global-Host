@@ -4,8 +4,11 @@ class ConversationsController < ApplicationController
 
   def index
     @user = User.find(current_user.id)
-    @messages = @user.messages
-    # @conversations = Conversation.all
+    if @user.started_conversations.empty?
+      @conversations = @user.continued_conversations
+    else
+      @conversations = @user.started_conversations
+    end
   end
 
   def new
