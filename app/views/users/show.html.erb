@@ -23,11 +23,13 @@
 
   <div class="col s12 user-button">
     <% if @user == current_user %>
-        <%= link_to("Update Profile", edit_user_path, class:"waves-effect waves-light btn user-button")%>
+        <%= link_to "Update Profile", edit_user_path, class:"waves-effect waves-light btn user-button" %>
       </div>
+      <div class="col s12">
+        <%= link_to "My Messages", conversations_path, class:"waves-effect waves-light btn user-button" %>
     <% else %>
       <div class="col s12">
-        <%= link_to("Contact Me", new_conversation_message_path(rand(1..10), @user.id), class:"waves-effect waves-light btn user-button")%>
+        <%= link_to "Contact Me", {:controller => "conversations", :action => "new", :id => params[:id]}, class:"waves-effect waves-light btn user-button" %>
     <% end %>
   </div>
 
