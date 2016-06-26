@@ -15,7 +15,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params_registration_form)
     if @user.save
       session[:user_id] = @user.id
-      redirect_to root_path
+      redirect_to users_search_path
     else
       @errors = @user.errors.full_messages
       render :new
