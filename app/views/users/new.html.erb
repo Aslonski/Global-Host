@@ -5,14 +5,17 @@
 			<div class="col s12">
 				<h1>Sign up!</h1>
 				<!-- Can guide? -->
-				<div class="row">
-					<div class="input-field col s12">
-						<p>
-							<input id="is_host" type="checkbox" name="is_host" value="true">
-							<label for="is_host">Available to guide?</label>
-						</p>
-					</div>
-				</div>
+				<div class="switch">
+			    <label for="is_host">
+						<h6>Available to guide?</h6>
+
+			      No
+						<input type="hidden" name="is_host" value="false">
+			      <input id="is_host" type="checkbox" name="is_host" value="true">
+			      <span class="lever"></span>
+			      Yes
+			    </label>
+			  </div>
 				<!-- First and Last Name -->
 				<div class="row">
 					<div class="input-field col s6">
