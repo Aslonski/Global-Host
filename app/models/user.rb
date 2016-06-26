@@ -28,8 +28,11 @@ class User < ActiveRecord::Base
 		likeminded_users.where.not(id: self.id).distinct
 	end
 
-	def filter_by_city
-		where(city: params[:city])
+	def self.search(search)
+		city_hosts = hosts.where(city: search)
+		matching_hosts = $current.possible_matches
+		city_hosts & matching_hosts
 	end
+
 
 end
