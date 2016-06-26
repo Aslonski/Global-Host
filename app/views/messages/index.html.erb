@@ -2,14 +2,16 @@
   <h3>Send a Message</h3>
   <ul>
   <% @messages.each do |message| %>
-  <!-- why is @user here? -->
-  <% @user = message.user %>
-  <!-- make message sides alternate -->
+
   <div class="row">
-    <div class="col s12">
-      <p class="message"><%= message.body %></p>
+      <div class="col s8 offset-s4 m5">
+        <div class="card-panel blue lighten-3">
+          <span class="white-text">
+            <%= message.body %>
+          </span>
+        </div>
+      </div>
     </div>
-  </div>
   </ul>
   <% end %>
 

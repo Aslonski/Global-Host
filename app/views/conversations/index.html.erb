@@ -4,9 +4,24 @@
   <div class="conversations">
     <ul>
     <% @conversations.each do |conversation| %>
-    <li><%= link_to conversation.recipient.first_name, conversation_messages_path(conversation.id)  %> - <%= conversation.recipient.city %> </li>
+    <li>
+      <div class="col s12 m8 offset-m2 l6 offset-l3">
+        <div class="card-panel grey lighten-5 z-depth-1">
+          <div class="row valign-wrapper">
+            <div class="col s2">
+              <%= image_tag "user-image-with-black-background_318-34564.png", alt: "user-profile-img", class: "circle responsive-img" %>
+            </div>
+            <div class="col s10">
+              <span class="black-text">
+                <%= link_to conversation.sender.first_name, conversation_messages_path(conversation.id)  %> - <%= conversation.sender.city %>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </li>
+    </div>
     </ul>
     <% end %>
   </div>
 
-</div>
