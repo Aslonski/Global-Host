@@ -1,7 +1,19 @@
 class ActivitiesController < ApplicationController
 
+  def new
+    @itinerary = Itinerary.find(params[:itinerary_id])
+    @activity = @itinerary.activities.new
+  end
+
   def create
-    @itinerary = Itinerary.find(params[:id])
+    @itinerary = Itinerary.find(params[:itinerary_id])
+    @activity = @itinerary.activities.new(activities_params)
+
+    if @activity.save
+      redirect_to itinerary_path(@itinerary)
+    else
+      render edit_itinerary_activity_path
+    end
   end
 
   def edit
