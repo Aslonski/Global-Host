@@ -45,3 +45,10 @@ li {
   text-align: center;
   margin-bottom: 5px;
 }
+body {
+   background-color: #e1f5fe !important;
+}
+.btn, .btn-large { 
+  background-color: white !important;
+  color: #1a237e !important;
+}

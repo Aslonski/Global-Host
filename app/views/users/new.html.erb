@@ -1,21 +1,89 @@
 <div class="container">
-	<div class="login-container">
-		<h1 class="user-interaction-title">Sign up!</h1>
-		<%= render '/errors' %>
-		<%= form_for :user, url: '/users' do |f| %>
+	<%= render '/errors' %>
+	<%= form_for @user, url: users_path do |f| %>
+		<div class="row">
+			<div class="col s12">
+				<h1>Sign up!</h1>
+				<!-- Can guide? -->
+				<div class="switch">
+			    <label for="is_host">
+						<h6>Available to guide?</h6>
 
-		  First Name: <%= f.text_field :first_name %>
-		  Last Name: <%= f.text_field :last_name %>
-		  Email: <%= f.text_field :email %>
-			City: <%= f.text_field :city %>
-		  State/Province: <%= f.text_field :state_province %>
-			Country: <%= f.text_field :country %>
-		  About Me: <%= f.text_field :personal_info %>
-		  Languages: <%= f.text_field :language %>
-		  Gender: <%= f.text_field :gender %>
-			Guide Status: <%= f.text_field :is_host %>
-			Password: <%= f.password_field :password %>
-		  <%= f.submit "Submit", :class => 'form-button' %>
-		<% end %>
+			      No
+						<input type="hidden" name="is_host" value="false">
+			      <input id="is_host" type="checkbox" name="is_host" value="true">
+			      <span class="lever"></span>
+			      Yes
+			    </label>
+			  </div>
+				<!-- First and Last Name -->
+				<div class="row">
+					<div class="input-field col s6">
+						 <input id="first_name" type="text" class="validate" name="first_name">
+						 <label for="first_name">First Name</label>
+					</div>
+					<div class="input-field col s6">
+	          <input id="last_name" type="text" class="validate" name="last_name">
+	          <label for="last_name">Last Name</label>
+        	</div>
+				</div>
+				<!--Gender-->
+				<div class="row">
+					<div class="input-field col s4">
+						 <input id="male" type="radio" name="gender" value="male" checked>
+						 <label for="male">Male</label>
+					</div>
+					<div class="input-field col s4">
+						 <input id="female" type="radio" name="gender" value="female" checked>
+						 <label for="female">Female</label>
+					</div>
+					<div class="input-field col s4">
+						 <input id="other" type="radio" name="gender" value="female" checked>
+						 <label for="other">Other</label>
+					</div>
+				</div>
+				<div class="row">
+				 	<div class="input-field col s12">
+						 <input id="email" type="email" class="validate" name="email">
+						 <label for="email">Email</label>
+				 	</div>
+		 		</div>
+				<div class="row">
+					<div class="input-field col s12">
+						<input id="password" type="password" class="validate" name="password">
+						<label for="password">Password</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="input-field col s6">
+						 <input id="city" type="text" class="validate" name="city">
+						 <label for="city">City</label>
+					</div>
+					<div class="input-field col s6">
+	          <input id="state_province" type="text" class="validate" name="state_province">
+	          <label for="state_province">State or Province</label>
+        	</div>
+				</div>
+				<div class="row">
+					<div class="input-field col s6">
+						 <input id="country" type="text" class="validate" name="country">
+						 <label for="country">Country</label>
+					</div>
+					<div class="input-field col s6">
+	          <input id="language" type="text" class="validate" name="language">
+	          <label for="language">Language</label>
+        	</div>
+				</div>
+				<div class="row">
+			      <div class="row">
+			        <div class="input-field col s12">
+			          <textarea id="personal_info" class="materialize-textarea" name="personal_info"></textarea>
+			          <label for="personal_info">About me</label>
+			        </div>
+			      </div>
+			  </div>
+			  <%= f.submit "Submit", :class => "waves-effect waves-light btn" %>
+			<% end %>
+		</div>
 	</div>
 </div>
