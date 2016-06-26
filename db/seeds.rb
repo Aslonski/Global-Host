@@ -12,7 +12,8 @@ Itinerary.destroy_all
 Activity.destroy_all
 Location.destroy_all
 
-gender = ["Male", "Female"]
+gender = ["Male", "Female", "Other"]
+numbers_to_sample = [1,2,3,4,5,6,7,8,9,10]
 
 5.times do User.create!(
 		first_name: Faker::Name.first_name,
@@ -52,12 +53,30 @@ Interest.create!(name: "Nightlife & Bars")
 Interest.create!(name: "Shopping")
 Interest.create!(name: "Translation")
 
-25.times do
-	UserInterest.create!(
-		user_id: rand(1..10),
-		interest_id: rand(1..7)
-		)
-end
+UserInterest.create!(interest_id: 1, user_id: 1)
+UserInterest.create!(interest_id: 2, user_id: 1)
+UserInterest.create!(interest_id: 3, user_id: 1)
+UserInterest.create!(interest_id: 1, user_id: 2)
+UserInterest.create!(interest_id: 4, user_id: 2)
+UserInterest.create!(interest_id: 1, user_id: 3)
+UserInterest.create!(interest_id: 2, user_id: 3)
+UserInterest.create!(interest_id: 3, user_id: 3)
+UserInterest.create!(interest_id: 1, user_id: 4)
+UserInterest.create!(interest_id: 2, user_id: 4)
+UserInterest.create!(interest_id: 3, user_id: 4)
+UserInterest.create!(interest_id: 1, user_id: 5)
+UserInterest.create!(interest_id: 4, user_id: 5)
+UserInterest.create!(interest_id: 5, user_id: 5)
+UserInterest.create!(interest_id: 2, user_id: 6)
+UserInterest.create!(interest_id: 6, user_id: 6)
+UserInterest.create!(interest_id: 1, user_id: 7)
+UserInterest.create!(interest_id: 5, user_id: 7)
+UserInterest.create!(interest_id: 6, user_id: 7)
+UserInterest.create!(interest_id: 1, user_id: 8)
+UserInterest.create!(interest_id: 1, user_id: 9)
+UserInterest.create!(interest_id: 7, user_id: 9)
+UserInterest.create!(interest_id: 1, user_id: 10)
+UserInterest.create!(interest_id: 6, user_id: 10)
 
 10.times do
   Itinerary.create!(

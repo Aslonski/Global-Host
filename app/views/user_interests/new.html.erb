@@ -1,0 +1,14 @@
+<%= form_for(@user, @user_interests) do |f| %>
+<div>
+    <%= f.label :user_interests %>
+    <span>
+	<% @interests.all.each do |interest| %>
+        <%= interest.name %>
+      <!-- <label>
+          <%= check_box_tag :user_interest, interest.id %>
+        </label> -->
+      <br>
+	<% end %>
+    </span>
+</div>
+<% end %>
