@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'simplecov', :require => false, :group => :test
 
-# # Form gem to enable check-boxes
+# Form gem to enable check-boxes
 # gem 'simple_form'
 #
 # # Country selection gem for Simple_form
