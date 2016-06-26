@@ -10,7 +10,7 @@ class ItinerariesController < ApplicationController
   def create
     @itinerary = Itinerary.new(itinerary_params)
     @itinerary.visitor = current_user
-    @itinerary.host =
+    # @itinerary.host = ???
   end
 
   def show
@@ -19,7 +19,7 @@ class ItinerariesController < ApplicationController
   end
 
   private
-    def itinierary_params
+    def itinerary_params
       params.require(:itinerary).permit(:name, :date)
     end
 end
