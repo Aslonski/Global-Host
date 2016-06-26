@@ -8,10 +8,6 @@
     </ul>
   <% end %>
 
-  <%= form_for [@conversation, @message] do |f| %>
-    <%= f.text_area :body %>
-    <%= f.text_field :user_id, value: current_user.id, type: "hidden" %>
-    <%= f.submit class:"waves-effect waves-light btn" %>
-  <% end %>
+  <%= render :partial => 'messages/form', :locals => {:conversation => @conversation} %>
 
 </div>
