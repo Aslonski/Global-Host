@@ -1,0 +1,87 @@
+<div class="container">
+	<%= render '/errors' %>
+	<%= form_for @user do |f| %>
+		<div class="row">
+			<div class="col s12">
+				<h1>Sign up!</h1>
+				<!-- Can guide? -->
+				<div class="row">
+					<div class="input-field col s12">
+						<p>
+							<input id="is_host" type="checkbox" checked="unchecked">
+							<label for="is_host">Available to guide?</label>
+						</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="input-field col s6">
+						 <input id="first_name" type="text" class="validate">
+						 <label for="first_name">First Name</label>
+					</div>
+					<div class="input-field col s6">
+	          <input id="last_name" type="text" class="validate">
+	          <label for="last_name">Last Name</label>
+        	</div>
+				</div>
+				<div class="row">
+				 	<div class="input-field col s12">
+						 <input id="email" type="email" class="validate">
+						 <label for="email">Email</label>
+				 	</div>
+		 		</div>
+				<div class="row">
+					<div class="input-field col s12">
+						<input id="password" type="password" class="validate" name="password">
+						<label for="password">Password</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="input-field col s6">
+						 <input id="city" type="text" class="validate">
+						 <label for="city">City</label>
+					</div>
+					<div class="input-field col s6">
+	          <input id="state_province" type="text" class="validate">
+	          <label for="state_province">State or Province</label>
+        	</div>
+				</div>
+				<div class="row">
+					<div class="input-field col s6">
+						 <input id="country" type="text" class="validate">
+						 <label for="country">Country</label>
+					</div>
+					<div class="input-field col s6">
+	          <input id="language" type="text" class="validate">
+	          <label for="language">Language</label>
+        	</div>
+				</div>
+				<div class="row">
+			    <form class="col s12">
+			      <div class="row">
+			        <div class="input-field col s12">
+			          <textarea id="personal_info" class="materialize-textarea"></textarea>
+			          <label for="personal_info">About me</label>
+			        </div>
+			      </div>
+			    </form>
+			  </div>
+				<!--Gender-->
+				<div class="row">
+					<div class="input-field col s4">
+						 <input id="male" type="radio" name="gender" value="male" checked>
+						 <label for="male">Male</label>
+					</div>
+					<div class="input-field col s4">
+						 <input id="female" type="radio" name="gender" value="female" checked>
+						 <label for="female">Female</label>
+					</div>
+					<div class="input-field col s4">
+						 <input id="other" type="radio" name="gender" value="female" checked>
+						 <label for="other">Other</label>
+					</div>
+				</div>
+			  <%= f.submit "Submit", :class => "waves-effect waves-light btn" %>
+			<% end %>
+		</div>
+	</div>
+</div>
