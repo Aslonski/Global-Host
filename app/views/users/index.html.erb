@@ -1,0 +1,13 @@
+<div class="container">
+	<div class="row">
+		<div class="col s12">
+		<% @users.each do |user| %>
+			<ul>
+				<li>
+					<%= user.first_name %>
+				</li>
+			</ul>
+		<% end %>
+		</div>
+	</div>
+</div>

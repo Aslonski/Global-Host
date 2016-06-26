@@ -1,0 +1,13 @@
+<div class="contnainer">
+	<div class="row center">
+		<div class="col s12">
+			<h1> Where to...? </h1>
+				<%= form_tag(users_path, :method => "get", id: "search-form") do %>
+					<%= text_field_tag :search, params[:search], placeholder: "Destination City" %>
+					<button class="btn waves-effect waves-light" type="submit" name="action"><%= submit_tag "Search" %>
+					    <i class="material-icons right">send</i>
+					  </button>
+				<% end %>
+		</div>
+	</div>
+</div>
