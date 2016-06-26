@@ -1,0 +1,41 @@
+<div class="user-info container">
+
+  <div class="user-image-container container col s12">
+    <%= image_tag "user-image-with-black-background_318-34564", class: "user-image circle responsive-img" %>
+  </div>
+
+  <hr class="user-page-hr">
+
+  <div class="user-details row">
+    <p class="col s12"><span class="category-title">Name: </span><%= @user.first_name %> <%= @user.last_name %></p>
+    <p class="col s12"><span class="category-title">Gender: </span><%= @user.gender %></p>
+    <p class="col s12"><span class="category-title">Location: </span><%= @user.city %>, <%= @user.state_province %>, <%= @user.country %></p>
+    <p class="col s12"><span class="category-title">Main language: </span><%= @user.language %></p>
+    <p class="col s12"><span class="category-title">Personal info: </span><%= @user.personal_info %></p>
+    <p class="col s12"><span class="category-title">Interests: </span>
+      <% @user.interests.each do  |interest| %>
+        <%= interest.name + ", " %>
+      <% end %>
+    </p>
+  </div>
+
+  <hr class="user-page-hr">
+
+  <div class="col s12 user-button">
+    <% if @user == current_user %>
+      <div class="col s12">
+        <%= link_to "Search For Global Hosts", users_search_path, class:"waves-effect waves-light btn user-button" %>
+      </div>
+      <div class="col s12">
+        <%= link_to "My Conversations", conversations_path, class:"waves-effect waves-light btn user-button" %>
+      </div>
+      <div class="col s12">
+        <%= link_to "Update Profile", edit_user_path, class:"waves-effect waves-light btn user-button" %>
+      </div>
+    <% else %>
+      <div class="col s12">
+        <%= link_to "Contact Me", {:controller => "conversations", :action => "new", :id => params[:id]}, class:"waves-effect waves-light btn user-button" %>
+    <% end %>
+  </div>
+
+</div>
