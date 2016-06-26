@@ -44,17 +44,18 @@ end
 	)
 end
 
-
-20.times do
-	Interest.create!(
-		name: Faker::Hipster.word
-		)
-end
+Interest.create!(name: "History & Culture")
+Interest.create!(name: "Art & Museums")
+Interest.create!(name: "Exploration")
+Interest.create!(name: "Food & Restaurant")
+Interest.create!(name: "Nightlife & Bars")
+Interest.create!(name: "Shopping")
+Interest.create!(name: "Translation")
 
 25.times do
 	UserInterest.create!(
 		user_id: rand(1..10),
-		interest_id: rand(1..20)
+		interest_id: rand(1..7)
 		)
 end
 
