@@ -3,7 +3,7 @@ class ConversationsController < ApplicationController
   before_action :find_recipient, except: [:index]
 
   def index
-    @users = User.find(params[:id])
+    @user = User.find(current_user.id)
     @messages = @user.messages
     # @conversations = Conversation.all
   end
