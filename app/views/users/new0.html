@@ -16,11 +16,8 @@
 			Guide Status:
 				<br>
 				<br>
-					<!--this works  -->
-					<!-- <%= f.check_box(:is_host, checked: true) %>
-					<%= label_tag(:is_host, "Would you like to be available as a guide?") %> -->
-				<%= check_box_tag(:is_host,true) %>
-				<%= label_tag(:is_host, checked: true, "Check this if you're willing to guide?") %>
+				<%= f.check_box :is_host, checked: false %>
+				<%= f.label 'is_host', id:'is_host' %>
 				<br>
 				<br>
 			Password: <%= f.password_field :password %>
