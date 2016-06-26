@@ -3,23 +3,15 @@ class ConversationsController < ApplicationController
   before_action :find_recipient, except: [:index]
 
   def index
-    @users = User.find(params[:id])
-    @messages = @user.messages
-    # @conversations = Conversation.all
+    @user = User.find(current_user.id)
+    started = Conversation.where(sender_id: current_user.id)
+    continued = Conversation.where(recipient_id: current_user.id)
+    @conversations = started.concat(continued)
   end
 
   def new
-    convo = Conversation.where(sender_id: current_user.id, recipient_id: @recipient.id) ||
-      Conversation.where(sender_id: @recipient.id, recipient_id: current_user.id)
-
-    if convo.exists?
-      @conversation = convo.first
-      redirect_to conversation_messages_path(@conversation)
-    else
-      @conversation = Conversation.create(sender_id: current_user.id, recipient_id: @recipient.id)
-      session[:convo_id] = @conversation.id
-      redirect_to conversation_messages_path(@conversation)
-    end
+    @conversation = Conversation.find_or_create_between(current_user, @recipient)
+    redirect_to conversation_messages_path(@conversation)
   end
 
   def show
