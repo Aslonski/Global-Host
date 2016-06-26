@@ -1,0 +1,20 @@
+
+<div class="row">
+  <div class="edit-user-form container col s12">
+    <%= form_for @user, :html => { :method => :put} do |f| %>
+      <%= render '/errors' %>
+
+      First Name: <%= f.text_field :first_name %>
+      Last Name: <%= f.text_field :last_name %>
+      Email: <%= f.text_field :email %>
+      City: <%= f.text_field :city %>
+      State/Province: <%= f.text_field :state_province %>
+      Country: <%= f.text_field :country %>
+      About Me: <%= f.text_field :personal_info %>
+      Languages: <%= f.text_field :language %>
+      Gender: <%= f.text_field :gender %>
+      Guide Status: <%= f.text_field :is_host %>
+      <%= f.submit "Save Changes", :class => "form-button waves-effect waves-light btn user-button" %>
+    <% end %>
+  </div>
+</div>
