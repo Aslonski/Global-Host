@@ -5,12 +5,10 @@ class MessagesController < ApplicationController
 
   def index
     @messages = @conversation.messages
-    @message = @conversation.messages.new
-    # tutorial recommends making a new @message in the index method???
+    @message = Message.new
   end
 
   def new
-    @conversation = Conversation.new
     @message = @conversation.messages.new
   end
 

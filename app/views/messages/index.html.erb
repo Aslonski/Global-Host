@@ -1,4 +1,5 @@
 <div class="container">
+  <h3>Send a Message</h3>
   <ul>
   <% @messages.each do |message| %>
   <!-- why is @user here? -->
@@ -12,6 +13,6 @@
   </ul>
   <% end %>
 
-  <%= render :partial => 'messages/form', :locals => {:conversation => @conversation} %>
+  <%= render :partial => 'form' %>
 
 </div>
