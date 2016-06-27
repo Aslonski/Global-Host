@@ -3,24 +3,26 @@
   <div class="user-image-container container col s12">
     <%= image_tag "user-image-with-black-background_318-34564", class: "user-image circle responsive-img" %>
   </div>
-
+  <% if @user.is_host == true %>
+    <i class="small material-icons">navigation</i> Available to host
+  <% end %>
   <hr class="user-page-hr">
 
   <div class="user-details row">
-    <p class="col s12"><span class="category-title">Name: </span><%= @user.first_name %> <%= @user.last_name %></p>
-    <p class="col s12"><span class="category-title">Gender: </span><%= @user.gender %></p>
-    <p class="col s12"><span class="category-title">Location: </span><%= @user.city %>, <%= @user.state_province %>, <%= @user.country %></p>
-    <p class="col s12"><span class="category-title">Main language: </span><%= @user.language %></p>
-    <p class="col s12"><span class="category-title">Personal info: </span><%= @user.personal_info %></p>
-    <p class="col s12"><span class="category-title">Interests: </span>
-      <hr class="user-page-hr">
-      <div class="col s12 user-button">
-        <% current_user.interests.each do |interest| %>
+    <p class="col s12"><h4><%= @user.first_name %> <%= @user.last_name %></span></h4>
+      <p class="col s12"><span class="category-title">Interests: </span>
+        <hr class="user-page-hr">
+        <div class="col s12 user-button">
+          <% current_user.interests.each do |interest| %>
           <div class="chip">
             <%= interest.name%>
           </div>
-        <% end %>
-      </p>
+          <% end %>
+        </p>
+    <p class="col s12"><span class="category-title">Personal info: </span><%= @user.personal_info %></p>
+    <p class="col s12"><span class="category-title">Location: </span><%= @user.city %>, <%= @user.state_province %>, <%= @user.country %></p>
+    <p class="col s12"><span class="category-title">Main language: </span><%= @user.language %></p>
+    <p class="col s12"><span class="category-title">Gender: </span><%= @user.gender %></p>
     </div>
 
     <hr class="user-page-hr">
