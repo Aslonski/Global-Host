@@ -22,7 +22,6 @@
       <%= f.text_field :gender %>
       <%= f.label :is_host %>:
       <%= f.text_field :is_host %>
-      <%= f.text_field :all_interests%>
       <%= f.submit "Save Changes", :class => "form-button waves-effect waves-light btn user-button" %>
     <% end %>
   </div>
