@@ -30,7 +30,6 @@ class ItinerariesController < ApplicationController
 
   def edit
     @itinerary = Itinerary.find(params[:itinerary_id])
-    @itinerary.host =
     @activity = @itinerary.activity.find(params[:id])
   end
 
