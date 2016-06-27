@@ -39,11 +39,10 @@ class UsersController < ApplicationController
     end
   end
 
-
   private
   # @advisor - .require does not work with materialize form
   def user_params_registration_form
-    params.permit(:first_name, :last_name, :email, :city, :state_province, :country, :personal_info, :language, :gender, :is_host, :password)
+    params.permit(:first_name, :last_name, :email, :city, :state_province, :country, :personal_info, :language, :gender, :is_host, :password, :all_interests)
   end
 
   def user_params
