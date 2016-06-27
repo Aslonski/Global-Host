@@ -1,4 +1,10 @@
 class ItinerariesController < ApplicationController
+  # before_action :find_conversation, only: [:new]
+
+  # def find_conversation
+  #   @conversation = Conversation.find(params[:id])
+  # end
+
   def index
     @itineraries = Itinerary.all
   end
@@ -10,7 +16,13 @@ class ItinerariesController < ApplicationController
   def create
     @itinerary = Itinerary.new(itinerary_params)
     @itinerary.visitor = current_user
-    # @itinerary.host = ???
+    # @itinerary.host = @conversation.recipient
+    if @itinerary.save
+      redirect_to itinerary_path(@itinerary)
+    else
+      @errors = @itinerary.errors.full_messages
+      render 'form'
+    end
   end
 
   def show
@@ -20,6 +32,7 @@ class ItinerariesController < ApplicationController
 
   def edit
     @itinerary = Itinerary.find(params[:itinerary_id])
+    @itinerary.host =
     @activity = @itinerary.activity.find(params[:id])
   end
 
