@@ -1,10 +1,22 @@
 <div class="container">
-   <div class="row">
+  <% if !@itinerary.name.present? && !@itinerary.date.present? %>
+    <div class="row">
+      <div class="col s12">
+        <p>Give your itinerary a name and a date!</p>
+      </div>
+    </div>
+
+    <%= render 'form' %>
+
+    <% else %>
+
+    <div class="row">
       <div class="col s12"><h3 class="section-header"><%= @itinerary.name %></h3></div>
-  </div>
-  <div class="row">
-    <div class="col s12"><h5 class="section-header"><%= @itinerary.date %></h5></div>
-  </div>
+    </div>
+    <div class="row">
+      <div class="col s12"><h5 class="section-header"><%= @itinerary.date %></h5></div>
+    </div>
+  <% end %>
 
   <% if @activities.length < 1 %>
       <div class="row">

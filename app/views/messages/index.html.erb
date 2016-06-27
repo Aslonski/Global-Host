@@ -17,4 +17,13 @@
 
   <%= render :partial => 'form' %>
 
+  <div class="row">
+    <h5 class="col s12">Go To Your Itinerary!</h5>
+  </div>
+  <div class="row">
+    <div class="col s12">
+      <%= link_to "My Itinerary", @conversation.itinerary, class: "waves-effect waves-light btn" %>
+    </div>
+  </div>
+
 </div>

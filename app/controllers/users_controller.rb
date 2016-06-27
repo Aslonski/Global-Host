@@ -3,8 +3,8 @@ class UsersController < ApplicationController
   before_filter 'authorize', :only => [:edit, :delete]
 
   def index
-      $current = current_user
-      @users = User.search(params[:search])
+    $current = current_user
+    @users = User.search(params[:search])
   end
 
   def new
