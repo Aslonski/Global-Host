@@ -1,0 +1,18 @@
+<%= form_for @user, url: users_path do |f| %>
+	<div class="row">
+		<div class="col s12">
+			<!-- Can guide? -->
+			<div class="switch">
+		    <label for="is_host">
+					<h6>Available to guide?</h6>
+		      No
+					<input type="hidden" name="is_host" value="false">
+		      <input id="is_host" type="checkbox" name="is_host" value="true">
+		      <span class="lever"></span>
+		      Yes
+		    </label>
+		  </div>
+		  <%= f.submit "Submit", :class => "waves-effect waves-light btn" %>
+		<% end %>
+	</div>
+</div>
