@@ -43,5 +43,14 @@ class User < ActiveRecord::Base
 	  self.interests.map(&:name).join(", ")
 	end
 
+	def all_conversations
+		self.started_conversations + self.continued_conversations
+	end
+
+	def unread_messages
+		self.messages.where(read: false)
+	end
+
+
 
 end
