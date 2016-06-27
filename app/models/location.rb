@@ -4,5 +4,5 @@ class Location < ActiveRecord::Base
   has_many :travelers, through: :itineraries, source: :visitor
   has_many :natives, through: :itineraries, source: :host
 
-  validates :name, :address, :city, presence: :true
+  # validates :name, :address, :city, presence: :true
 end
