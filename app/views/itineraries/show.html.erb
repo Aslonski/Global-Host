@@ -11,14 +11,20 @@
     <% else %>
 
     <div class="row">
-      <div class="col s12"><h3 class="section-header"><%= @itinerary.name %></h3></div>
+      Title: <div class="col s12"><h3 class="section-header"><%= @itinerary.name %></h3></div>
     </div>
     <div class="row">
-      <div class="col s12"><h5 class="section-header"><%= @itinerary.date %></h5></div>
+      Date: <div class="col s12"><h5 class="section-header"><%= @itinerary.date %></h5></div>
+    </div>
+    <div class="row">
+      Hosted by: <div class="col s12"><h5 class="section-header"><%= @itinerary.host.first_name + " " + @itinerary.host.last_name %></h5></div>
+    </div>
+    <div class="row">
+      Created by: <div class="col s12"><h5 class="section-header"><%= @itinerary.visitor.first_name + " " + @itinerary.visitor.last_name %></h5></div>
     </div>
   <% end %>
 
-
+  <hr class="user-page-hr">
 
     <ul class="list">
       <% @activities.each do |activity| %>
@@ -29,7 +35,6 @@
       </div>
       </ul>
     <% end %>
-
 
   <div class="row">
     <div class="col s12">
