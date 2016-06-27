@@ -18,13 +18,8 @@
     </div>
   <% end %>
 
-  <% if @activities.length < 1 %>
-      <div class="row">
-        <div class="col s12">
-          <%= link_to "Add an Activity", new_itinerary_activity_path(@itinerary, @activity), class: "waves-effect waves-light btn" %>
-        </div>
-      </div>
-  <% else %>
+
+
     <ul class="list">
       <% @activities.each do |activity| %>
       <div class="row">
@@ -34,5 +29,11 @@
       </div>
       </ul>
     <% end %>
-  <% end %>
+
+
+  <div class="row">
+    <div class="col s12">
+      <%= link_to "Add an Activity", new_itinerary_activity_path(@itinerary, @activity), class: "waves-effect waves-light btn" %>
+    </div>
+  </div>
 </div>
