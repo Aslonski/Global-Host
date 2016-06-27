@@ -1,4 +1,4 @@
-<%= form_for [@itinerary] do |f| %>
+<%= form_for @itinerary, :html => { :method => :put } do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %>
 

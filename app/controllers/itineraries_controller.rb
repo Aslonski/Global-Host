@@ -10,15 +10,11 @@ class ItinerariesController < ApplicationController
   end
 
   def new
-
     @itinerary = Itinerary.new
   end
 
   def create
-    @conversation = Conversation.find_by(sender_id: current_user, recipient_id: )
     @itinerary = @conversation.itinerary.new(itinerary_params)
-    @itinerary.visitor = current_user
-    # @itinerary.host = @conversation.recipient
     if @itinerary.save
       redirect_to itinerary_path(@itinerary)
     else
@@ -39,8 +35,10 @@ class ItinerariesController < ApplicationController
   end
 
   def update
-    @itinerary = Itinerary.find(params[:itinerary_id])
-    @activity = @itinerary.activity.find(params[:id])
+    @itinerary = Itinerary.find(params[:id])
+    @itinerary.update_attributes(itinerary_params)
+    redirect_to @itinerary
+    # @activity = @itinerary.activity.find(params[:id])
   end
 
   private
