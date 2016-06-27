@@ -24,7 +24,11 @@
    <nav>
   <a href="#" data-activates="mobile-demo" class="right"><i class="material-icons">email</i></a>
       <div class="nav-wrapper light-blue darken-4">
-        <a href="/" class="brand-logo center">Global Host</a>
+        <% if logged_in? %>
+            <a href="/users/search" class="brand-logo center">Global Host</a>
+          <% else %>
+            <a href="/" class="brand-logo center">Global Host</a>
+          <% end %>
         <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
         <ul class="left hide-on-med-and-down">
           <% if logged_in? %>

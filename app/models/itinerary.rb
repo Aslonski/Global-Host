@@ -6,4 +6,6 @@ class Itinerary < ActiveRecord::Base
   belongs_to :host, class_name: "User"
 
   validates :name, :visitor_id, :host_id, :date, presence: :true
+
+  accepts_nested_attributes_for :activities
 end
