@@ -10,11 +10,13 @@ class ItinerariesController < ApplicationController
   end
 
   def new
+
     @itinerary = Itinerary.new
   end
 
   def create
-    @itinerary = Itinerary.new(itinerary_params)
+    @conversation = Conversation.find_by(sender_id: current_user, recipient_id: )
+    @itinerary = @conversation.itinerary.new(itinerary_params)
     @itinerary.visitor = current_user
     # @itinerary.host = @conversation.recipient
     if @itinerary.save
