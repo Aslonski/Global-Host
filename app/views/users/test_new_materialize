@@ -1,0 +1,13 @@
+<div class="input-field col s12">
+    <select multiple>
+
+        <option value="History & Culture">History & Culture</option>
+        <option value="Art & Museums">Art & Museums</option>
+        <option value="Exploration">Exploration</option>
+        <option value="Food & Restaurant">Exploration</option>
+        <option value="Nightlife & Bars">Nightlife & Bars</option>
+        <option value="Shopping">Shopping</option>
+        <option value="Translation">Translation</option>
+    </select>
+    <label>Materialize Multiple Select</label>
+</div>
