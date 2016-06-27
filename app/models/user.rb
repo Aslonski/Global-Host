@@ -32,5 +32,16 @@ class User < ActiveRecord::Base
 		city_hosts & matching_hosts
 	end
 
+# Add Interests
+	def all_interests=(names)
+	  self.interests = names.split(",").map do |name|
+	      Interest.where(name: name.strip).first_or_create!
+	  end
+	end
+
+	def all_interests
+	  self.interests.map(&:name).join(", ")
+	end
+
 
 end

@@ -13,15 +13,16 @@ Activity.destroy_all
 Location.destroy_all
 
 gender = ["Male", "Female", "Other"]
+languages = ["English", "Spanish", "Chinese", "Korean", "Japanese", "Russian"]
 numbers_to_sample = [1,2,3,4,5,6,7,8,9,10]
 
 5.times do User.create!(
 		first_name: Faker::Name.first_name,
 		last_name: Faker::Name.last_name,
 		email: Faker::Internet.email,
-		city: Faker::Address.city,
-		state_province: Faker::Address.state,
-		country: Faker::Address.country,
+		city: "Chicago",
+		state_province: "IL",
+		country: "U.S.A.",
 		personal_info: Faker::Hipster.paragraph,
 		language: "English",
 		password:'password',
@@ -34,9 +35,9 @@ end
 		first_name: Faker::Name.first_name,
 		last_name: Faker::Name.last_name,
 		email: Faker::Internet.email,
-		city: Faker::Address.city,
-		state_province: Faker::Address.state,
-		country: Faker::Address.country,
+		city: "Chicago",
+		state_province: "IL",
+		country: "U.S.A.",
 		personal_info: Faker::Hipster.paragraph,
 		language: "English",
 		password:'password',
