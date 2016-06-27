@@ -4,11 +4,15 @@ class Conversation < ActiveRecord::Base
 
   has_many :messages, dependent: :destroy
 
+  has_one :itinerary
+
   validates_presence_of :sender_id, :recipient_id
   # The following scope ensures that only one conversation exists between two users
   # This may be something to refactor later for repeat uses of the app
   # validates_uniqueness_of :sender_id, :scope => :recipient_id
   validate :conversation_is_uniq, on: :create
+
+  after_commit :make_itinerary
 
   def conversation_is_uniq
     if Conversation.between(sender, recipient).present?
@@ -27,5 +31,9 @@ class Conversation < ActiveRecord::Base
 
   def self.find_or_create_between(sender, recipient)
     between(sender, recipient) || create!(sender_id: sender.id, recipient_id: recipient.id)
+  end
+
+  def make_itinerary
+    Itinerary.create(visitor_id: sender_id, host_id: recipient_id, conversation_id: id)
   end
 end
