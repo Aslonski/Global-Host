@@ -5,7 +5,20 @@
 		<% @users.each do |user| %>
 			<ul>
 				<li>
-					<%= user.first_name %>
+				  <div class="col s12 m8 offset-m2 l6 offset-l3">
+		        <div class="card-panel grey lighten-5 z-depth-1">
+		          <div class="row valign-wrapper">
+		            <div class="col s2">
+		              <%= image_tag "user-image-with-black-background_318-34564.png", alt: "user-profile-img", class: "circle responsive-img" %>
+		            </div>
+		            <div class="col s10">
+		              <span class="black-text">
+		                <%= link_to user.first_name, user_path(user)  %> - <%= user.city %>
+		              </span>
+		            </div>
+		          </div>
+		        </div>
+		      </div>
 				</li>
 			</ul>
 		<% end %>
