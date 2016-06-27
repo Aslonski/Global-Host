@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
     get "/users/search" => "users#search"
     resources :users
-    resources :user_interests
-
 
     resources :sessions, only: [:new, :create, :destroy]
 
