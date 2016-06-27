@@ -24,7 +24,7 @@ RSpec.describe Message, type: :model do
     end
   end
 
-  describe "Message structure" do
+  xdescribe "Message structure" do
     it "has a body" do
       expect(message.body).to eq("Sweet message!")
     end
@@ -38,11 +38,11 @@ RSpec.describe Message, type: :model do
     end
   end
 
-  describe "custom message time display" do
+  xdescribe "custom message time display" do
 
   end
 
-  describe "Message associations" do
+  xdescribe "Message associations" do
 
   end
 

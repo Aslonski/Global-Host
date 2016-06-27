@@ -19,8 +19,22 @@ class LocationsController < ApplicationController
     end
   end
 
+  def edit
+    @itinerary = Itinerary.find(params[:itinerary_id])
+    @activity = Activity.find(params[:activity_id])
+    @location = Location.find(params[:id])
+  end
+
+  def update
+    @itinerary = Itinerary.find(params[:itinerary_id])
+    @activity = Activity.find(params[:activity_id])
+    @location = Location.find(params[:id])
+  end
+
   private
+
     def location_params
       params.require(:location).permit(:name, :address, :city)
     end
+    
 end
