@@ -1,0 +1,9 @@
+<%= form_for [@itinerary] do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :date %>
+  <%= f.text_field :date %>
+
+  <%= f.submit class:"waves-effect waves-light btn" %>
+<% end %>

@@ -8,11 +8,11 @@ RSpec.describe Itinerary, type: :model do
     expect(itinerary.name).to eq("Barcelona")
   end
 
-  it "has a valid visitor ID" do
+  xit "has a valid visitor ID" do
     expect(itinerary.visitor_id).to eq(1)
   end
 
-  it "has a valid host ID" do
+  xit "has a valid host ID" do
     expect(itinerary.host_id).to eq(2)
   end
 
@@ -24,8 +24,8 @@ RSpec.describe Itinerary, type: :model do
 
   it { should have_many(:locations) }
 
-  it { should belong_to(:visitor) }
+  xit { should belong_to(:visitor) }
 
-  it { should belong_to(:host) }
+  xit { should belong_to(:host) }
 
 end
