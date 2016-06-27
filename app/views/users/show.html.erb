@@ -15,16 +15,10 @@
     <p class="col s12"><span class="category-title">Interests: </span>
       <hr class="user-page-hr">
       <div class="col s12 user-button">
-        <% if @user == current_user %>
-          <% current_user.interests.each do |interest| %>
-        <div class="chip">
-          <%= interest.name%>
-        </div>
-        <% end %>
-          <% else %>
-            <% @user.interests.each do  |interest| %>
-              <%= interest.name + ", " %>
-            <% end %>
+        <% current_user.interests.each do |interest| %>
+          <div class="chip">
+            <%= interest.name%>
+          </div>
         <% end %>
       </p>
     </div>
