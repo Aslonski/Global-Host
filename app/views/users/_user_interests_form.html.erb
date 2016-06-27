@@ -1,0 +1,14 @@
+<%= form_for @user, url: users_path do |f| %>
+	<div class="row">
+		<div class="col s12">
+			<!-- User Interests -->
+			<div class="row">
+				<div class="input-field col s12">
+					<input id="all_interests" type="text" class="validate" name="all_interests">
+					<label for="all_interests">Interests separated by comma</label>
+				</div>
+			</div>
+		  <%= f.submit "Submit", :class => "waves-effect waves-light btn" %>
+		<% end %>
+	</div>
+</div>
