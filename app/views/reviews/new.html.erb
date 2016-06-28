@@ -8,7 +8,7 @@
   <div><%= f.text_field :body %></div>
 
   <%= f.hidden_field :reviewed_user_id, value: @user.id %>
-  <%= f.hidden_field :reviewing_user_id, value: current_user.id %>
+  <%= f.hidden_field :reviewer_id, value: current_user.id %>
   <div><%= f.submit "Review" %></div>
 
 <% end %>
