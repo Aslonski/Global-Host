@@ -13,7 +13,7 @@
       <p class="col s12"><span class="category-title">Interests: </span>
         <hr class="user-page-hr">
         <div class="col s12 user-button">
-          <% current_user.interests.each do |interest| %>
+          <% @user.interests.each do |interest| %>
           <div class="chip">
             <%= interest.name%>
           </div>
@@ -41,6 +41,10 @@
       <% else %>
       <div class="col s12">
         <%= link_to "Contact Me", {:controller => "conversations", :action => "new", :id => params[:id]}, class:"waves-effect waves-light btn user-button" %>
+        </div>
+        <div class="col s12">
+        <%= link_to "Review Me", new_user_review_path(@user), class:"waves-effect waves-light btn user-button" %>
+        </div>
         <% end %>
       </div>
 
