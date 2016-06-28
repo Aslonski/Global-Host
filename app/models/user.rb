@@ -2,6 +2,12 @@ class User < ActiveRecord::Base
 
 	has_secure_password
 
+	has_many :reviews
+	# The users this user has reviewd
+	has_many :reviewd_users, through: :reviews, class_name: "User", foreign_key: :reviewd_user_id
+	# The users that have reviewd this client
+  has_many :reviewd_by_users, through: :reviews, class_name: "User", foreign_key: :rating_user_id
+
   has_many :visitor_itineraries, foreign_key: "visitor_id", class_name: "Itinerary"
   has_many :host_itineraries, foreign_key: "host_id", class_name: "Itinerary"
 
@@ -42,5 +48,9 @@ class User < ActiveRecord::Base
 	  self.interests.map(&:name).join(", ")
 	end
 
+# User overall review score
+	def overall_score
+    self.reviews.exists? ? self.reviews.average(:score).round(1) : 0
+  end
 
 end
