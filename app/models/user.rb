@@ -43,9 +43,14 @@ class User < ActiveRecord::Base
 		likeminded_users.where.not(id: self.id).distinct
 	end
 
+
 	def self.search(search)
 		city_hosts = hosts.where(city: search.downcase)
 		matching_hosts = $current.possible_matches
+
+	def search(search)
+		city_hosts = hosts.where(city: search)
+		matching_hosts = self.possible_matches
 		city_hosts & matching_hosts
 	end
 
