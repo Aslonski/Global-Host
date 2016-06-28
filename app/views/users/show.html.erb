@@ -7,7 +7,7 @@
   <% if @user.is_host == true %>
     <i class="small material-icons">navigation</i> Available to Guide
   <% end %>
-  | Score: <%= @user.overall_score %>
+  | <%= link_to "Score: #{@user.overall_score}", user_reviews_path(@user) %>
   <hr class="user-page-hr">
 
   <div class="user-details row">
