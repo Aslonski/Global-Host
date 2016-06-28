@@ -46,8 +46,16 @@ class User < ActiveRecord::Base
 		self.started_conversations + self.continued_conversations
 	end
 
-	def unread_messages
-		self.messages.where(read: false)
+	def unread_messages_count
+		@unread = 0
+		self.all_conversations.each do |convo|
+			convo.messages.each do |msg|
+				if msg.user_id != self.id && msg.read == false
+					@unread += 1
+				end
+			end
+		end
+			@unread
 	end
 
 
