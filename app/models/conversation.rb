@@ -9,7 +9,7 @@ class Conversation < ActiveRecord::Base
   validates_presence_of :sender_id, :recipient_id
   # The following scope ensures that only one conversation exists between two users
   # This may be something to refactor later for repeat uses of the app
-  # validates_uniqueness_of :sender_id, :scope => :recipient_id
+  validates_uniqueness_of :sender_id, :scope => :recipient_id
   validate :conversation_is_uniq, on: :create
 
   after_commit :make_itinerary
