@@ -9,6 +9,7 @@
         <p class="col s12"><span class="category-title">Reviewed by: <%= link_to "#{author.first_name } #{author.last_name}", user_path(review.reviewer_id) %></span></p>
         <p class="col s12"><%= review.body %></p>
     </div>
+    <hr class="user-page-hr">
   </ul>
   <% end %>
 
