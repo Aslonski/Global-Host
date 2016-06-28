@@ -11,6 +11,11 @@ html, body {
   text-align: center;
 }
 
+.hidden {
+  display: none;
+  visibility: hidden;
+}
+
 #search-bar {
   text-align: center;
 }

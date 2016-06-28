@@ -19,12 +19,12 @@
 
 <div class="row">
   <div class="col s12">
-    <%= link_to "Update this Activity", edit_itinerary_activity_path(activity.itinerary, activity), class: "waves-effect waves-light btn" %>
+    <%= link_to "Update this Activity", edit_itinerary_activity_path(activity.itinerary, activity), class: "update-activity-button waves-effect waves-light btn" %>
   </div>
 </div>
 <div class="row">
   <div class="col s12">
-    <%= link_to "Remove this Activity", itinerary_activity_path(activity.itinerary, activity), method: :delete, class: "waves-effect waves-light btn" %>
+    <%= link_to "Remove this Activity", itinerary_activity_path(activity.itinerary, activity), method: :delete, class: "remove-activity-button waves-effect waves-light btn" %>
   </div>
 </div>
 
