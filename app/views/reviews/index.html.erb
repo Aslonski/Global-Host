@@ -1,5 +1,6 @@
 <div class="container">
-<h5 class="col s12"><span class="category-title"> Reviews For: <%= @user.first_name %> <%= @user.last_name %></span></h5>
+<h5 class="col s12"><span class="category-title">Reviews For: <%= link_to "#{@user.first_name} #{@user.last_name}", user_path(@user) %></span></h5>
+
   <ul>
     <% @reviews.each do |review| %>
       <div class="row">
