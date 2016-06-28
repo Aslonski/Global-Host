@@ -3,12 +3,12 @@
     <%= form_for [@itinerary, @activity], :html => { :method => :put } do |f| %>
       <%= f.label :description %>:
       <%= f.text_field :description %>
-        <%= f.fields_for :location do |ff| %>
-        <%= f.label :name %>:
+      <%= f.fields_for :location do |ff| %>
+          <%= ff.label :name %>:
           <%= ff.text_field :name %>
-          <%= f.label :address %>:
+          <%= ff.label :address %>:
           <%= ff.text_field :address %>
-          <%= f.label :city %>:
+          <%= ff.label :city %>:
           <%= ff.text_field :city %>
         <% end %>
       <%= f.submit "Save Changes", :class => "waves-effect waves-light btn user-button" %>
