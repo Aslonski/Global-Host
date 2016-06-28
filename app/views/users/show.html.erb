@@ -32,12 +32,6 @@
       <div class="col s12">
         <%= link_to "Search For Global Hosts", users_search_path, class:"waves-effect waves-light btn user-button" %>
       </div>
-      <div class="col s12">
-        <%= link_to "My Conversations", conversations_path, class:"waves-effect waves-light btn user-button" %>
-      </div>
-      <div class="col s12">
-        <%= link_to "Update Profile", edit_user_path, class:"waves-effect waves-light btn user-button" %>
-      </div>
       <% else %>
       <div class="col s12">
         <%= link_to "Contact Me", {:controller => "conversations", :action => "new", :id => params[:id]}, class:"waves-effect waves-light btn user-button" %>

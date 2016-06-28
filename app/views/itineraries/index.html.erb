@@ -3,9 +3,26 @@
       <div class="col s12"><h3 class="section-header">Your Itineraries</h3></div>
   </div>
 
+  <hr class="user-page-hr">
+
+  <div class="row">
+     <div class="col s12"><h3 class="section-header">Created by you: </h3></div>
+ </div>
+
   <ul class="list">
-    <% @itineraries.each do |itinerary| %>
+    <% @visitor_itineraries.each do |itinerary| %>
       <li><%= render partial: 'itin_listing', locals: { itinerary: itinerary } %></li>
     </ul>
   <% end %>
+
+  <div class="row">
+     <div class="col s12"><h3 class="section-header">Hosted by you: </h3></div>
+  </div>
+
+  <ul class="list">
+    <% @host_itineraries.each do |itinerary| %>
+      <li><%= render partial: 'itin_listing', locals: { itinerary: itinerary } %></li>
+    </ul>
+  <% end %>
+  </div>
 </div>
