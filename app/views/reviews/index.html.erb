@@ -3,7 +3,7 @@
   <ul>
     <% @reviews.each do |review| %>
       <div class="row">
-        <h5 class="col s12"><span class="category-title"><%= review.title %> | score: <%= review.score %></span></h5>
+        <p class="col s12"><span class="category-title"><%= review.title %> | score: <%= review.score %></span></p>
         <p class="col s12"><%= review.body %></p>
     </div>
   </ul>
