@@ -47,7 +47,7 @@ class User < ActiveRecord::Base
 
 # User overall review score
 	def overall_score
-    self.reviews.exists? ? self.reviews.average(:score).round(1) : 0
+    self.reviewee_reviews.exists? ? self.reviewee_reviews.average(:score).round(1) : 0
   end
 
 	def all_interests

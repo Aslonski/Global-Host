@@ -3,9 +3,11 @@
   <div class="user-image-container container col s12">
     <%= image_tag "user-image-with-black-background_318-34564", class: "user-image circle responsive-img" %>
   </div>
+
   <% if @user.is_host == true %>
     <i class="small material-icons">navigation</i> Available to host
   <% end %>
+  | Host Score: <%= @user.overall_score %>
   <hr class="user-page-hr">
 
   <div class="user-details row">
