@@ -5,7 +5,7 @@
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
-
+  <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -36,7 +36,7 @@
               <li><%= link_to("Hello #{current_user.first_name}", user_path(current_user))%></li>
               <li><%= link_to("Logout", session_path(current_user), method: :delete, data: {confirm: 'Are you sure you want to log out?'}) %></li>
             <% else %>
-              <li><%= link_to("Login", new_session_path)%>  </td></li>
+              <li><%= link_to("Login", new_session_path)%></li>
               <li><%= link_to("Register", new_user_path)%></li>
             <% end %>
       </ul>
@@ -44,6 +44,10 @@
         <% if logged_in? %>
             <%= image_tag "user-image-with-black-background_318-34564", class: "user-image circle responsive-img" %>
             <%= link_to("Hello #{current_user.first_name}", user_path(current_user))%>
+
+            <%= link_to conversations_path(current_user.all_conversations) do %>
+             Messages <span class="new badge"><%= current_user.unread_messages_count %> </span>
+            <% end %>
             <%= link_to "My Itineraries", itineraries_path(current_user) %>
             <%= link_to "Update Profile", edit_user_path(current_user) %>
             <%= link_to("Logout", session_path(current_user), method: :delete, data: {confirm: 'Are you sure you want to log out?'}) %>
