@@ -10,10 +10,18 @@ function initMap() {
     zoom: 12
   });
 
+  // Bring in collection of location coordinates
+  window.locationsCollection.forEach(function(location){
+    console.log(location)
+    return markerMaker(location)
+  })
+  // Drop a marker for each
+}
+
+function markerMaker(location){
   var marker = new google.maps.Marker({
-    position: window.mapCenterLocation,
+    position: location,
     map: map,
     animation: google.maps.Animation.DROP
   });
 }
-
