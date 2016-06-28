@@ -3,14 +3,25 @@
   <ul>
   <% @messages.each do |message| %>
 
-  <div class="row">
+    <div class="row">
+    <% if current_user.id == message.user_id %>
       <div class="col s8 offset-s4 m5">
-        <div class="card-panel blue lighten-3">
+        <div class="card-panel green lighten-3">
           <span class="white-text">
             <%= message.body %>
           </span>
         </div>
       </div>
+      <% else %>
+        <% message.update(read: true) %>
+      <div class="col s8 m5">
+        <div class="card-panel blue lighten-1">
+          <span class="white-text">
+            <%= message.body %>
+          </span>
+        </div>
+      </div>
+    <% end %>
     </div>
   </ul>
   <% end %>

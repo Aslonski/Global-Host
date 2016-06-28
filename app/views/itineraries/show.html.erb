@@ -44,4 +44,12 @@
   <div class="col s12">
     <%= link_to "Confirm this Itinerary", class: "waves-effect waves-light btn" %>
   </div>
+
+
+  <p id="itin-city"> <%= @itinerary.host.city %> </p>
+  <div id="map">
+  </div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBgaK6AdncBCkgkSFtzvgksSEkF3TVBz1E&callback=initMap" async defer></script>
+    <script >"https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyDHNVo3T3tcjPrSGTh9ifxZy5m7Cnbozxs"</script>
+>>>>>>> f43d320d82a4832b6439d8ebead1ed91d1ec8717
 </div>

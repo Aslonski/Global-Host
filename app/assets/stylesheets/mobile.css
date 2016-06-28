@@ -1,5 +1,6 @@
 html, body {
   height: 100%;
+  font-family: "Lato", sans-serif !important;
 }
 
 .container {
@@ -62,4 +63,8 @@ body {
 #map {
   height: 250px;
   border: 1px black;
+}
+
+#itin-city {
+  display: none;
 }
