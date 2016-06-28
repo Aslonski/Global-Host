@@ -63,3 +63,7 @@ body {
   height: 250px;
   border: 1px black;
 }
+
+#itin-city {
+  display: none;
+}
