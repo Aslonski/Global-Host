@@ -4,7 +4,7 @@ class CreateReviews < ActiveRecord::Migration
       t.string :title
       t.text :body
       t.integer :score, null: false, default: 0
-      t.integer :reviewing_user_id
+      t.integer :reviewer_id
       t.integer :reviewed_user_id
 
       t.timestamps null: false
