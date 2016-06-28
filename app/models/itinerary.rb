@@ -10,4 +10,17 @@ class Itinerary < ActiveRecord::Base
   # validates :name, :date, presence: :true
 
   accepts_nested_attributes_for :activities
+
+  def location_lat_lng
+    return unless city
+    return @location_lat_lng if @location_lat_lng
+
+    response = HTTParty.get("https://maps.googleapis.com/maps/api/geocode/json?address=#{city}&key=#{ENV["GOOGLE_GEOCODE_KEY"]}")
+    location_data = JSON.parse(response.body)
+    @location_lat_lng = location_data["results"].first["geometry"]["location"]
+  end
+
+  def city
+    host.city if host
+  end
 end
