@@ -20,8 +20,8 @@
       <%= f.text_field :language %>
       <%= f.label :gender %>:
       <%= f.text_field :gender %>
-      <%= f.label :is_host %>:
-      <%= f.text_field :is_host %>
+      <%= f.check_box :is_host %>
+      <%= f.label 'is_host', id:'is_host' %>
       <%= f.label :all_interests, 'Your interests (comma separated)' %>:
       <%= f.text_field :all_interests%>
       <%= f.submit "Save Changes", :class => "form-button waves-effect waves-light btn user-button" %>

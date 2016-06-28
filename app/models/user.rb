@@ -58,15 +58,16 @@ class User < ActiveRecord::Base
 	  end
 	end
 
-# User overall review score
-	def overall_score
-    self.reviewee_reviews.exists? ? self.reviewee_reviews.average(:score).round(1) : 0
-  end
 
 	def all_interests
 	  self.interests.map(&:name).join(", ")
 	end
 
+	# User overall review score
+	def overall_score
+		self.reviewee_reviews.exists? ? self.reviewee_reviews.average(:score).round(1) : 0
+	end
+	
 	def all_conversations
 		self.started_conversations + self.continued_conversations
 	end
