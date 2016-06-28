@@ -1,9 +1,10 @@
 class UsersController < ApplicationController
 
-  before_filter 'authorize', :only => [:edit, :delete]
+  before_filter 'authorize!', :only => [:edit, :delete]
 
   def index
     $current = current_user
+    @all_city_hosts = User.alternative_matches(current_user.id, params[:search])
     @users = User.search(params[:search])
   end
 

@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   get "/users/search" => "users#search"
-  resources :users
+
+  resources :users do
+    resources :reviews, only: [:show, :new, :create, :index] do
+    end
+  end
 
   resources :sessions, only: [:new, :create, :destroy]
 
