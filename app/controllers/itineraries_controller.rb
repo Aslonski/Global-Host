@@ -42,6 +42,11 @@ class ItinerariesController < ApplicationController
     # @activity = @itinerary.activity.find(params[:id])
   end
 
+  # def destroy
+  #   @itinerary = Itinerary.find(params[:id])
+  #   @itinerary.destroy
+  # end
+
   private
     def itinerary_params
       params.require(:itinerary).permit(:name, :date)
