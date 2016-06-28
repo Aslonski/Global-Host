@@ -47,6 +47,7 @@ class User < ActiveRecord::Base
 	def self.search(search)
 		city_hosts = hosts.where(city: search.downcase)
 		matching_hosts = $current.possible_matches
+	end
 
 	def search(search)
 		city_hosts = hosts.where(city: search)
