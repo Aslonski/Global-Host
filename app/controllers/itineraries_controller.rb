@@ -6,7 +6,9 @@ class ItinerariesController < ApplicationController
   # end
 
   def index
-    @itineraries = Itinerary.all
+    @user = current_user
+    @visitor_itineraries = Itinerary.where(visitor_id: current_user.id)
+    @host_itineraries = Itinerary.where(host_id: current_user.id)
   end
 
   def new
