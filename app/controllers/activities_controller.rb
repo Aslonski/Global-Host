@@ -35,6 +35,13 @@ class ActivitiesController < ApplicationController
     end
   end
 
+  def destroy
+    @itinerary = Itinerary.find(params[:itinerary_id])
+    @activity = Activity.find(params[:id])
+    @activity.destroy
+    redirect_to itinerary_path(@itinerary)
+  end
+
   private
 
   def activities_params
