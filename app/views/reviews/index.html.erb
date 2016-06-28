@@ -1,0 +1,16 @@
+<div class="container">
+<h5 class="col s12"><span class="category-title">Reviews For: <%= link_to "#{@user.first_name} #{@user.last_name}", user_path(@user) %></span></h5>
+
+  <ul>
+    <% @reviews.each do |review| %>
+      <div class="row">
+        <p class="col s12"><span class="category-title"><%= review.title %> | score: <%= review.score %></span></p>
+        <% author = User.find(review.reviewer_id) %>
+        <p class="col s12"><span class="category-title">Reviewed by: <%= link_to "#{author.first_name } #{author.last_name}", user_path(review.reviewer_id) %></span></p>
+        <p class="col s12"><%= review.body %></p>
+    </div>
+    <hr class="user-page-hr">
+  </ul>
+  <% end %>
+
+</div>
