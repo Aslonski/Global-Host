@@ -1,0 +1,15 @@
+<div class="container col s12">
+  <h4 class="col s12"><span class="category-title">Review Me!</span></h4>
+  <%= render '/errors' %>
+  <%= form_for :review, url: user_reviews_path do |f| %>
+
+  <div>Score:<%= f.text_field :score %></div>
+  <div>Header:<br> <%= f.text_field :title %></div>
+  <div>Body:<%= f.text_field :body %></div>
+
+  <%= f.hidden_field :reviewee_id, value: @user.id %>
+  <%= f.hidden_field :reviewer_id, value: current_user.id %>
+  <div><%= f.submit "Review", :class => "form-button waves-effect waves-light btn user-button" %></div>
+
+<% end %>
+</div>
