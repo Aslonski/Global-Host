@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
-    get "/users/search" => "users#search"
-    resources :users
+  get "/users/search" => "users#search"
 
-    
-    resources :sessions, only: [:new, :create, :destroy]
+  resources :users do
+    resources :reviews, only: [:show, :new, :create] do
+    end
+  end
+
+  resources :sessions, only: [:new, :create, :destroy]
 
   root 'welcome#index'
 
