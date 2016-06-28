@@ -68,7 +68,7 @@
 				<!-- Country and Language -->
 				<div class="row">
 					<div class="input-field col s6">
-						 <input id="country" type="text" class="validate" name="country" value="<%= @user.country %>">
+						 <input id="country" type="text" class="validate" name="usercountry" value="<%= @user.country %>">
 						 <label for="country">Country</label>
 					</div>
 					<div class="input-field col s6">
@@ -79,8 +79,11 @@
 				<!-- User Interests -->
 				<div class="row">
 					<div class="input-field col s12">
-						<input id="all_interests" type="text" class="validate" name="all_interests" >
-						<label for="all_interests">Interests separated by comma</label>
+						<% @interests.all.each do |interest| %>
+						    <% id = interest.id%>
+						    <input id="<%=id%>" name="all_interests[]" value="<%=interest.name%>" type="checkbox">
+						    <label for="<%=id%>"><%= interest.name%></label>
+						  <% end %>
 					</div>
 				</div>
 				<!-- Personal Info  -->
