@@ -13,7 +13,11 @@
             </div>
             <div class="col s10">
               <span class="black-text">
-                <%= link_to conversation.sender.first_name, conversation_messages_path(conversation.id)  %> - <%= conversation.sender.city %>
+                <% if conversation.sender != current_user %>
+                  <%= link_to conversation.sender.first_name, conversation_messages_path(conversation.id)  %> - <%= conversation.sender.city %>
+                <% else %>
+                  <%= link_to conversation.recipient.first_name, conversation_messages_path(conversation.id)  %> - <%= conversation.recipient.city %>
+                <% end %>
               </span>
             </div>
           </div>

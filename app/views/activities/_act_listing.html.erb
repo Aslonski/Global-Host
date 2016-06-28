@@ -4,18 +4,23 @@
   </div>
 </div>
 
+
+<% if activity.location.present? %>
 <div class="location-detail z-depth-2">
   <div class="location-detail row">
     <div class="col s12">
-      <p><%= activity.location.name %></p>
-      <p><%= activity.location.address %></p>
-      <p><%= activity.location.city %></p>
+      <p><span class="category-title">name:</span> <%= activity.location.name %></p>
+      <p><span class="category-title">address:</span> <%= activity.location.address %></p>
+      <p><span class="category-title">city:</span> <%= activity.location.city %></p>
     </div>
   </div>
 </div>
+<% end %>
 
 <div class="row">
   <div class="col s12">
-    <%= link_to "Add Location To This Activity", new_itinerary_activity_location_path(activity.itinerary, activity), class: "waves-effect waves-light btn" %>
+    <%= link_to "Update this Activity", edit_itinerary_activity_path(activity.itinerary, activity), class: "waves-effect waves-light btn" %>
   </div>
 </div>
+
+<hr class="user-page-hr">

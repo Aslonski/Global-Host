@@ -1,10 +1,11 @@
 class UsersController < ApplicationController
 
-  before_filter 'authorize', :only => [:edit, :delete]
+  before_filter 'authorize!', :only => [:edit, :delete]
 
   def index
-      $current = current_user
-      @users = User.search(params[:search])
+    $current = current_user
+    @all_city_hosts = User.alternative_matches(current_user.id, params[:search])
+    @users = User.search(params[:search])
   end
 
   def new
@@ -39,11 +40,10 @@ class UsersController < ApplicationController
     end
   end
 
-
   private
   # @advisor - .require does not work with materialize form
   def user_params_registration_form
-    params.permit(:first_name, :last_name, :email, :city, :state_province, :country, :personal_info, :language, :gender, :is_host, :password)
+    params.permit(:first_name, :last_name, :email, :city, :state_province, :country, :personal_info, :language, :gender, :is_host, :password, :all_interests)
   end
 
   def user_params

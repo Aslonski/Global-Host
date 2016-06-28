@@ -9,7 +9,9 @@ require 'rails_helper'
 		let (:users) {User.all}
 		let! (:interest) {Interest.create!(name: "music")}
 		let! (:andreys_interest) {UserInterest.create(user_id: andrey.id, interest_id: interest.id)}
-		let! (:patrick_interest) {UserInterest.create(user_id: patrick.id, interest_id: interest.id)}
+		let! (:patrick_interest) {UserInterest.create(user_id: patrick.id, interest_id: interest.id)} 
+
+	
 
 		it "Has a method that returns a collection of hosts" do
 			expect(users.hosts).to_not be_empty
@@ -18,6 +20,18 @@ require 'rails_helper'
 		it "Has a method that return a collection of users with the same interests" do
 			expect(andrey.possible_matches.first).to eq(patrick)
 		end
+
+		it "Has a method that return a collection of interests" do
+			expect(andrey.all_interests).to eq("music")
+		end
+
+		it "Has a method that returns the number of unread conversations" do
+		  conversation = Conversation.create(sender_id: patrick.id, recipient_id: andrey.id)
+			Message.create(body: "Hello", conversation_id: conversation.id, user_id: patrick.id, read: false)
+			expect(andrey.unread_messages_count).to eq(1)
+		end
+
+
 
 		it { should validate_presence_of(:first_name) }
 		it { should validate_presence_of(:last_name) }

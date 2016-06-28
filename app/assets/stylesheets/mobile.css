@@ -1,3 +1,8 @@
+html, body {
+  height: 100%;
+  font-family: "Lato", sans-serif !important;
+}
+
 .container {
   text-align: center;
 }
@@ -45,10 +50,21 @@ li {
   text-align: center;
   margin-bottom: 5px;
 }
+
 body {
    background-color: #e1f5fe !important;
 }
-.btn, .btn-large { 
+
+.btn, .btn-large {
   background-color: white !important;
   color: #1a237e !important;
+}
+
+#map {
+  height: 250px;
+  border: 1px black;
+}
+
+#itin-city {
+  display: none;
 }
