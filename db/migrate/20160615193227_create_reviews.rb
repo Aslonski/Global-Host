@@ -5,7 +5,7 @@ class CreateReviews < ActiveRecord::Migration
       t.text :body
       t.integer :score, null: false, default: 0
       t.integer :reviewer_id
-      t.integer :reviewed_user_id
+      t.integer :reviewee_id
 
       t.timestamps null: false
     end

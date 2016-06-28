@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
 	has_secure_password
 
 	has_many :reviewer_reviews, class_name: "Review", foreign_key: :reviewer_id
-	has_many :reviewee_reviews, class_name: "Review", foreign_key: :reviewed_user_id
+	has_many :reviewee_reviews, class_name: "Review", foreign_key: :reviewee_id
 	# The users that have reviewed this client
 	has_many :reviewers, through: :reviewee_reviews
 	# The users this user has reviewed
