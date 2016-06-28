@@ -1,5 +1,10 @@
 class ReviewsController < ApplicationController
 
+  def index
+    @user = User.find(params[:user_id])
+    @reviews = Review.all.where(reviewee_id: @user.id)
+  end
+
   def new
     @user = User.find(params[:user_id])
     @review = Review.new
@@ -23,6 +28,6 @@ class ReviewsController < ApplicationController
 
   private
   def review_params
-    params.require(:review).permit(:title, :body, :score, :reviewed_user_id, :reviewing_user_id)
+    params.require(:review).permit(:title, :body, :score, :reviewee_id, :reviewer_id)
   end
 end

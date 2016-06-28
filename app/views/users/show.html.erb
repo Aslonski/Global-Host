@@ -3,14 +3,16 @@
   <div class="user-image-container container col s12">
     <%= image_tag "user-image-with-black-background_318-34564", class: "user-image circle responsive-img" %>
   </div>
+
   <% if @user.is_host == true %>
-    <i class="small material-icons">navigation</i> Available to host
+    <i class="small material-icons">navigation</i> Available to Guide
   <% end %>
+  | <%= link_to "Score: #{@user.overall_score}", user_reviews_path(@user) %>
   <hr class="user-page-hr">
 
   <div class="user-details row">
-    <p class="col s12"><h4><%= @user.first_name %> <%= @user.last_name %></span></h4>
-      <p class="col s12"><span class="category-title">Interests: </span>
+    <h4 class="col s12"><span class="category-title"><%= @user.first_name %> <%= @user.last_name %></span></h4>
+      <p class="col s12"><span class="category-title">Interests: </span></p>
         <hr class="user-page-hr">
         <div class="col s12 user-button">
           <% @user.interests.each do |interest| %>
@@ -24,8 +26,6 @@
     <p class="col s12"><span class="category-title">Main language: </span><%= @user.language %></p>
     <p class="col s12"><span class="category-title">Gender: </span><%= @user.gender %></p>
     </div>
-
-    <hr class="user-page-hr">
 
     <div class="col s12 user-button">
       <% if @user == current_user %>
