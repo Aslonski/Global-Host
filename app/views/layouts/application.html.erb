@@ -47,7 +47,7 @@
 
 
             <%= link_to conversations_path(current_user.all_conversations) do %>
-             Messages <span class="new badge"><%= current_user.unread_messages.count %> </span> 
+             Messages <span class="new badge"><%= current_user.unread_messages_count %> </span> 
             <% end %>
 
             <%= link_to("Logout", session_path(current_user), method: :delete, data: {confirm: 'Are you sure you want to log out?'}) %>
