@@ -45,9 +45,13 @@
   <div id="map">
   </div>
 
-  <script type="text/javascript">
-    window.mapCenterLocation = <%= raw @itinerary.location_lat_lng.to_json %>;
+  <script>
+    window.mapCenterLocation = <%= raw @itinerary.center_lat_lng.to_json %>;
   </script>
+  <script>
+    window.locationsCollection = <%= raw @itinerary.locations_finder.to_json %>
+  </script>
+
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBgaK6AdncBCkgkSFtzvgksSEkF3TVBz1E&callback=initMap" async defer></script>
-    <!-- https://maps.googleapis.com/maps/api/geocode/json?address=Chicago&key=AIzaSyDHNVo3T3tcjPrSGTh9ifxZy5m7Cnbozxs -->
+  <%=  %>
 </div>
