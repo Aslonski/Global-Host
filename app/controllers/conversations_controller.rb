@@ -6,7 +6,7 @@ class ConversationsController < ApplicationController
     @user = User.find(current_user.id)
     started = Conversation.where(sender_id: current_user.id)
     continued = Conversation.where(recipient_id: current_user.id)
-    @conversations = started.concat(continued)
+    @conversations = started + continued
   end
 
   def new
