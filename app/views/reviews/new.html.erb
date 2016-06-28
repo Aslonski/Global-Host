@@ -2,7 +2,7 @@
   <h4 class="col s12"><span class="category-title">Review Me!</span></h4>
   <%= render '/errors' %>
   <%= form_for :review, url: user_reviews_path do |f| %>
-
+  
   <div>Score:<%= f.text_field :score %></div>
   <div>Header:<br> <%= f.text_field :title %></div>
   <div>Body:<%= f.text_field :body %></div>
