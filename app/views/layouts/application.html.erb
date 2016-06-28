@@ -35,6 +35,7 @@
           <% if logged_in? %>
               <li><%= link_to("Hello #{current_user.first_name}", user_path(current_user))%></li>
               <li><%= link_to("Logout", session_path(current_user), method: :delete, data: {confirm: 'Are you sure you want to log out?'}) %></li>
+              <li> <%= link_to "Logout2", "#logout-modal" %></li>
             <% else %>
               <li><%= link_to("Login", new_session_path)%>  </td></li>
               <li><%= link_to("Register", new_user_path)%></li>
@@ -47,10 +48,12 @@
 
 
             <%= link_to conversations_path(current_user.all_conversations) do %>
-             Messages <span class="new badge"><%= current_user.unread_messages_count %> </span> 
+             Messages <span class="new badge"><%= current_user.unread_messages_count %> </span>
             <% end %>
 
             <%= link_to("Logout", session_path(current_user), method: :delete, data: {confirm: 'Are you sure you want to log out?'}) %>
+            <li> <%= link_to "Logout2", "#logout-modal" %></li>
+            <!-- <a class="waves-effect waves-light btn modal-trigger" href="#logout-modal">Modal</a> -->
           <% else %>
             <%= link_to("Register", new_user_path)%>
             <%= link_to("Login", new_session_path)%>
