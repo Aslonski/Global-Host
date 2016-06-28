@@ -1,0 +1,12 @@
+<div class="container">
+<h5 class="col s12"><span class="category-title"> Reviews For: <%= @user.first_name %> <%= @user.last_name %></span></h5>
+  <ul>
+    <% @reviews.each do |review| %>
+      <div class="row">
+        <h5 class="col s12"><span class="category-title"><%= review.title %> | score: <%= review.score %></span></h5>
+        <p class="col s12"><%= review.body %></p>
+    </div>
+  </ul>
+  <% end %>
+
+</div>
