@@ -23,6 +23,18 @@ class User < ActiveRecord::Base
 
 	validates_uniqueness_of :email
 
+	def self.all_city_hosts(search)
+    where(city: search)
+  end
+
+  def self.exclude_current_user(user_id)
+  	where.not(id: user_id)
+  end
+
+  def self.alternative_matches(user_id, search)
+  	self.exclude_current_user(user_id).all_city_hosts(search)
+  end
+
 	def self.hosts
 		where(is_host: true)
 	end
