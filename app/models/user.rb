@@ -26,7 +26,7 @@ class User < ActiveRecord::Base
 	end
 
 	def self.search(search)
-		city_hosts = hosts.where(city: search)
+		city_hosts = hosts.where(city: search.downcase)
 		matching_hosts = $current.possible_matches
 		city_hosts & matching_hosts
 	end
