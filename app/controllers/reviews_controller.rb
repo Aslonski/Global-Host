@@ -1,5 +1,10 @@
 class ReviewsController < ApplicationController
 
+  def index
+    @user = User.find(params[:user_id])
+    @reviews = Review.all.where(reviewed_user_id:1)
+  end
+
   def new
     @user = User.find(params[:user_id])
     @review = Review.new

@@ -5,14 +5,14 @@
   </div>
 
   <% if @user.is_host == true %>
-    <i class="small material-icons">navigation</i> Available to host
+    <i class="small material-icons">navigation</i> Available to Guide
   <% end %>
-  | Host Score: <%= @user.overall_score %>
+  | Score: <%= @user.overall_score %>
   <hr class="user-page-hr">
 
   <div class="user-details row">
-    <p class="col s12"><h4><%= @user.first_name %> <%= @user.last_name %></span></h4>
-      <p class="col s12"><span class="category-title">Interests: </span>
+    <h4 class="col s12"><span class="category-title"><%= @user.first_name %> <%= @user.last_name %></span></h4>
+      <p class="col s12"><span class="category-title">Interests: </span></p>
         <hr class="user-page-hr">
         <div class="col s12 user-button">
           <% @user.interests.each do |interest| %>
