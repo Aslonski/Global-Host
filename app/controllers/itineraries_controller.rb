@@ -44,11 +44,10 @@ class ItinerariesController < ApplicationController
 
   def complete
     @itinerary = Itinerary.find(params[:itinerary_id])
-    p @itinerary.id
     # @itinerary.update(complete: true)
-    # host_id = @itinerary.host_id
-    # @host = User.find_by(host_id: host_id)
-    # redirect_to new_user_review_path
+    host_id = @itinerary.host_id
+    @host = User.find(host_id)
+    redirect_to new_user_review_path(@host)
   end
 
 
