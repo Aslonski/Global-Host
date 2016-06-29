@@ -52,11 +52,16 @@
   <div id="map">
   </div>
 
-  <script>
-    window.mapCenterLocation = <%= raw @itinerary.center_lat_lng.to_json %>;
-    window.placesInfo = <%= raw @itinerary.places_info_finder.to_json %>
-  </script>
 
+
+    <script>
+      window.mapCenterLocation = <%= raw @itinerary.center_lat_lng.to_json %>;
+    </script>
+  <% if @itinerary.locations.first.name.length != 0 %>
+    <script >
+      window.placesInfo = <%= raw @itinerary.places_info_finder.to_json %>
+    </script>
+  <% end %>
 
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBgaK6AdncBCkgkSFtzvgksSEkF3TVBz1E&callback=initMap&libraries=places" async defer></script>
   <%=  %>
