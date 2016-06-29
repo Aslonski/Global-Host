@@ -66,8 +66,8 @@ body {
 }
 
 #map {
-  height: 250px;
-  border: 1px black;
+  height: 300px;
+  margin-bottom: 25px;
 }
 
 #itin-city {
