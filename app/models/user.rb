@@ -40,31 +40,36 @@ class User < ActiveRecord::Base
 		where(is_host: true)
 	end
 
+	def self.for_city(city)
+		where(city: city.capitalize)
+	end
+
 	def possible_matches
 		likeminded_users.where.not(id: self.id).distinct
 	end
 
 
-	def self.search(search)
-		city_hosts = hosts.where(city: search.capitalize)
-		matching_hosts = $current.possible_matches
+	def search(search)
+		city_hosts = User.hosts.for_city(search)
+		matching_hosts = self.possible_matches
 		city_hosts & matching_hosts
 	end
 
 # Add Interests
 	def all_interests=(names)
-	  self.interests = names.split(",").map do |name|
+	  self.interests = names.map do |name|
 	      Interest.where(name: name.strip).first_or_create!
 	  end
 	end
 
-# User overall review score
-	def overall_score
-    self.reviewee_reviews.exists? ? self.reviewee_reviews.average(:score).round(1) : 0
-  end
 
 	def all_interests
 	  self.interests.map(&:name).join(", ")
+	end
+
+	# User overall review score
+	def overall_score
+		self.reviewee_reviews.exists? ? self.reviewee_reviews.average(:score).round(1) : 0
 	end
 
 	def all_conversations
