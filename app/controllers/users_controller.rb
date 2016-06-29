@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   def index
     @all_city_hosts = User.alternative_matches(current_user.id, params[:search])
     @users = current_user.search(params[:search])
+    @reviews = Review.all
   end
 
   def new
