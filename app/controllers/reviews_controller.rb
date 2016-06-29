@@ -8,9 +8,6 @@ class ReviewsController < ApplicationController
   def new
     @user = User.find(params[:user_id])
     @review = Review.new
-    host_id: @itinerary.host_id
-    @host = Itinerary.find_by(host_id: host_id)
-    p @host
   end
 
   def create
