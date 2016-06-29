@@ -13,20 +13,23 @@ class Itinerary < ActiveRecord::Base
 
   accepts_nested_attributes_for :activities
 
-  def locations_finder
-    @locationJsons = []
+  def places_info_finder
+    @places_data = []
+    idx = 0
     locations.each do |location|
       formatted_address = location.address.split(' ').join('+')
       address_insert = formatted_address + ",+#{location.city}"
-      @locationJsons << get_geocode(address_insert)
+      @places_data << get_geocode_info(address_insert)
+      @places_data[idx][:loc_name] = location.name
+      idx += 1
     end
-    @locationJsons
+    @places_data
   end
 
   def center_lat_lng
     return unless city
     return @center_lat_lng if @center_lat_lng
-    @center_lat_lng = get_geocode(city)
+    @center_lat_lng = get_geocode_info(city)[:loc_lat_lng]
   end
 
   def city

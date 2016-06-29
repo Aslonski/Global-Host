@@ -27,6 +27,7 @@ class ItinerariesController < ApplicationController
 
   def show
     @itinerary = Itinerary.find(params[:id])
+    @activity = Activity.new
     @activities = @itinerary.activities
   end
 
@@ -42,10 +43,20 @@ class ItinerariesController < ApplicationController
     # @activity = @itinerary.activity.find(params[:id])
   end
 
-  # def destroy
-  #   @itinerary = Itinerary.find(params[:id])
-  #   @itinerary.destroy
-  # end
+  def complete
+    @itinerary = Itinerary.find(params[:itinerary_id])
+    # @itinerary.update(complete: true)
+    host_id = @itinerary.host_id
+    @host = User.find(host_id)
+    redirect_to new_user_review_path(@host)
+  end
+
+
+  def destroy
+    @itinerary = Itinerary.find(params[:id])
+    @itinerary.destroy
+    redirect_to itineraries_path
+  end
 
   private
     def itinerary_params

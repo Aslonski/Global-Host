@@ -56,6 +56,18 @@ li {
   margin-bottom: 5px;
 }
 
+.errors {
+  color: red
+}
+
+.slightly-enlarge-text {
+  font-size: 120%
+}
+
+.enlarge-text {
+  font-size: 150%
+}
+
 body {
    background-color: #e1f5fe !important;
 }
@@ -67,6 +79,7 @@ body {
 
 #map {
   height: 300px;
+  margin-top: 25px;
   margin-bottom: 25px;
 }
 
