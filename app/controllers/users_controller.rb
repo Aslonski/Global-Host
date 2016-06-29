@@ -54,4 +54,5 @@ class UsersController < ApplicationController
   def require_search_param
     redirect_to users_search_path unless params[:search]
   end
+
 end
