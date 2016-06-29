@@ -39,7 +39,6 @@ class UsersController < ApplicationController
     @interests = Interest.all
     @user = User.find(params[:id])
     if @user.update(user_params)
-      p user_params
       redirect_to user_path
     else
       render edit_user_path
