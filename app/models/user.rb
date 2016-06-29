@@ -53,18 +53,19 @@ class User < ActiveRecord::Base
 
 # Add Interests
 	def all_interests=(names)
-	  self.interests = names.split(",").map do |name|
+	  self.interests = names.map do |name|
 	      Interest.where(name: name.strip).first_or_create!
 	  end
 	end
 
-# User overall review score
-	def overall_score
-    self.reviewee_reviews.exists? ? self.reviewee_reviews.average(:score).round(1) : 0
-  end
 
 	def all_interests
 	  self.interests.map(&:name).join(", ")
+	end
+
+	# User overall review score
+	def overall_score
+		self.reviewee_reviews.exists? ? self.reviewee_reviews.average(:score).round(1) : 0
 	end
 
 	def all_conversations
