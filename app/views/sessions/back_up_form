@@ -1,9 +1,0 @@
-<div class="row">
-	<div class="col s12">
-	<%= form_tag sessions_path do %>
-	  <div>Email: <%= text_field_tag :email %></div>
-	  <div>Password: <%= password_field_tag :password %></div>
-	  <div><%= submit_tag "Login", :class => "waves-effect waves-light btn" %></div>
-	<% end %>
-	</div>
-</div>

@@ -1,0 +1,16 @@
+<a class="waves-effect waves-light btn-medium modal-trigger slightly-enlarge-text" href="#modal1">Tell us about yourself</a>
+<!-- Modal Structure -->
+<div id="modal1" class="modal">
+  <div class="modal-content">
+    <p>
+      Please tell us more about your quirks.
+    </p>
+    <div class="input-field col s12">
+      <textarea id="personal_info" class="materialize-textarea" length="120" name="user[personal_info]"><%= @user.personal_info %></textarea>
+      <label for="personal_info">About me</label>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Back to Form</a>
+  </div>
+</div>

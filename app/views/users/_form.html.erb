@@ -1,21 +1,10 @@
 <div class="row">
 	<div class="col s12">
-		<h1>Sign up!</h1>
-		<!-- Can guide? -->
-		<div class="switch">
-	    <label for="is_host">
-				<h6>Available to guide?</h6>
-	      No
-				<input type="hidden" name="user[is_host]" value="false" class="validate">
-	      <input type="checkbox" name="user[is_host]" value="true" class="validate" id="is_host">
-	      <span class="lever"></span>
-	      Yes
-	    </label>
-	  </div>
+		<h3>Sign up!</h3>
 		<!-- First and Last Name -->
 		<div class="row">
 			<div class="input-field col s6">
-				 <input id="first_name" type="text" class="validate" name="user[first_name]" value="<%= @user.first_name %>">
+				 <input id="first_name" type="text" class="validate" name="user[first_name]" value="<%= @user.first_name %>" >
 				 <label for="first_name">First Name</label>
 			</div>
 			<div class="input-field col s6">
@@ -23,36 +12,40 @@
         <label for="last_name">Last Name</label>
     	</div>
 		</div>
+		<!-- Can guide? -->
+		<div class="switch">
+			<label for="is_host">
+				<h6>Available to guide?</h6>
+				No
+				<input type="hidden" name="user[is_host]" value="false" class="validate">
+				<input type="checkbox" name="user[is_host]" value="true" class="validate" id="is_host">
+				<span class="lever"></span>
+				Yes
+			</label>
+		</div>
 		<!--Gender-->
-		<div class="row">
-			<div class="input-field col s4">
+			<div class="input-field col s3">
 				 <input id="male" type="radio" name="user[gender]" value="male" checked >
 				 <label for="male">Male</label>
 			</div>
-			<div class="input-field col s4">
+			<div class="input-field col s3">
 				 <input id="female" type="radio" name="user[gender]" value="female" checked>
 				 <label for="female">Female</label>
 			</div>
-			<div class="input-field col s4">
+			<div class="input-field col s6">
 				 <input id="other" type="radio" name="user[gender]" value="female" checked>
-				 <label for="other">Other</label>
+				 <label for="other">Non-identified</label>
 			</div>
-		</div>
 		<!-- Email -->
-		<div class="row">
 		 	<div class="input-field col s12">
 				 <input id="email" type="email" class="validate" name="user[email]" value="<%= @user.email %>">
 				 <label for="email">Email</label>
 		 	</div>
- 		</div>
-		<div class="row">
 			<div class="input-field col s12">
 				<input id="password" type="password" class="validate" name="user[password]" value="<%= @user.password %>">
 				<label for="password">Password</label>
 			</div>
-		</div>
 		<!-- City and State/Province -->
-		<div class="row">
 			<div class="input-field col s6">
 				 <input id="city" type="text" class="validate" name="user[city]" value="<%= @user.city %>">
 				 <label for="city">City</label>
@@ -61,36 +54,20 @@
         <input id="state_province" type="text" class="validate" name="user[state_province]" value="<%= @user.state_province %>">
         <label for="state_province">State or Province</label>
     	</div>
-		</div>
 		<!-- Country and Language -->
-		<div class="row">
 			<div class="input-field col s6">
 				 <input id="country" type="text" class="validate" name="user[country]" value="<%= @user.country %>">
 				 <label for="country">Country</label>
 			</div>
 			<div class="input-field col s6">
-        <input id="language" type="text" class="validate" name="user[language]" value="<%= @user.language %>">
-        <label for="language">Language</label>
+        <input value="English" id="language" type="text" class="validate" name="user[language]" value="<%= @user.language %>">
+        <label class="active" for="language">Languages</label>
     	</div>
-		</div>
-		<!-- User Interests -->
-		<div class="row">
-			<div class="input-field col s12">
-				<% @interests.all.each do |interest| %>
-				    <% id = interest.id%>
-				    <input id="<%=id%>" name="user[all_interests][]" value="<%=interest.name%>" type="checkbox">
-				    <label for="<%=id%>"><%= interest.name%></label>
-				  <% end %>
+			<div class="col s6">
+				<%= render :partial => 'about_me_modal' %>
+			</div>
+			<div class="col s6">
+				<%= render :partial => 'user_interests_modal', locals: {interests: interests} %>
 			</div>
 		</div>
-		<!-- Personal Info  -->
-		<div class="row">
-	      <div class="row">
-	        <div class="input-field col s12">
-	          <textarea id="personal_info" class="materialize-textarea validate" name="user[personal_info]"><%= @user.personal_info %></textarea>
-						<label for="personal_info">About me</label>
-	        </div>
-	      </div>
-	  </div>
 	</div>
-</div>
