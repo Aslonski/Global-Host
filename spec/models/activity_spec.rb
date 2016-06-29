@@ -16,10 +16,11 @@ RSpec.describe Activity, type: :model do
     expect(activity.location_id).to eq(2)
   end
 
-  xit "creates a new location for an activity" do
+  it "creates a new location for an activity" do
     params = {name: "a", address: "b", city: "c"}
     location = double(:locations)
-    expect_any_instance_of(Activity).to receive(:make_location).with(params).and_return(self)
+    allow_any_instance_of(Activity).to receive(:make_location).with(params).and_return(activity)
+    expect(activity.make_location(params)).to eq(activity)
 
     # location = Location.create(name: params[:name], address: params[:address], city: params[:city])
     # expect(make_location(params)).to eq location

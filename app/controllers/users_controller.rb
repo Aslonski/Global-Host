@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_filter 'authorize!'
+  before_filter 'authorize!', except: [:new, :create]
   before_filter 'self_authenticate(params[:id])', :only => [:delete]
   before_filter :require_search_param, only: :index
 
