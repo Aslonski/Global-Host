@@ -42,7 +42,7 @@
       </ul>
       <ul class="side-nav" id="mobile-demo">
         <% if logged_in? %>
-            <%= image_tag "user-image-with-black-background_318-34564", class: "user-image circle responsive-img" %>
+            <%= image_tag "baker", class: "user-image circle responsive-img" %>
             <%= link_to("Hello #{current_user.first_name}", user_path(current_user))%>
 
             <%= link_to conversations_path(current_user.all_conversations) do %>
