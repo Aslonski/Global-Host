@@ -61,5 +61,14 @@
       </script>
     <% end %>
 
-</div>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBgaK6AdncBCkgkSFtzvgksSEkF3TVBz1E&callback=initMap&libraries=places" async defer></script>
+
+  <% if @itinerary.visitor_id == current_user.id %>
+    <div class="delete-itinerary-button col s12">
+      <div class="row">
+        <%= button_to "Delete This Itinerary", itinerary_path(@itinerary), method: :delete, class: "waves-effect waves-light btn" %>
+
+      </div>
+    </div>
+  <% end %>
+</div>
