@@ -8,16 +8,20 @@ RSpec.describe Itinerary, type: :model do
     expect(itinerary.name).to eq("Barcelona")
   end
 
-  xit "has a valid visitor ID" do
+  it "has a valid visitor ID" do
     expect(itinerary.visitor_id).to eq(1)
   end
 
-  xit "has a valid host ID" do
+  it "has a valid host ID" do
     expect(itinerary.host_id).to eq(2)
   end
 
   it "has a valid date" do
     expect(itinerary.date).to eq("Sept 1, 2016")
+  end
+
+  it "returns a collection of locations" do
+    expect(itinerary.locations_finder).to be_kind_of(Array)
   end
  
 
