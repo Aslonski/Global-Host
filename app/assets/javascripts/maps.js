@@ -1,17 +1,20 @@
-$(document).ready(function(){
-
-});
-
 var map;
 
 function initMap() {
+  function centerFinder(){
+    if (window.locationsCollection && (window.locationsCollection.length > 0)) {
+      return window.locationsCollection[0]
+    } else {
+      return window.mapCenterLocation
+    }
+  };
+
   map = new google.maps.Map(document.getElementById('map'), {
-    center: window.mapCenterLocation,
+    center: centerFinder(),
     zoom: 12
   });
 
   window.locationsCollection.forEach(function(location){
-    console.log(location)
     return markerMaker(location)
   })
 }
