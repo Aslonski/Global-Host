@@ -1,7 +1,0 @@
-<%= form_for @user, url: users_path do |f| %>
-  <% @interests.all.each do |i| %>
-    <!-- <div><%= i.name %> <%= check_box_tag 'user[interests][]', i.id, @user.interests.detect{|ui| ui.name == i.name} %></div> -->
-    <input id="user[user_interests][]" type="checkbox">
-    <label for="user[user_interests][]"><%= i.name%></label>
-  <% end %>
-<% end %>
