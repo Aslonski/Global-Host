@@ -52,10 +52,11 @@ class ItinerariesController < ApplicationController
   end
 
 
-  # def destroy
-  #   @itinerary = Itinerary.find(params[:id])
-  #   @itinerary.destroy
-  # end
+  def destroy
+    @itinerary = Itinerary.find(params[:id])
+    @itinerary.destroy
+    redirect_to itineraries_path
+  end
 
   private
     def itinerary_params
