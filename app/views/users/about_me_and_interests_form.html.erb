@@ -1,0 +1,8 @@
+<div class="container">
+	<%= render '/errors' %>
+	<%= form_for @user, url: users_path do |f| %>
+		<%= render 'interests_form' %>
+		<%= render 'about_me_form' %>
+		<%= f.submit "Submit", :class => "waves-effect waves-light btn" %>
+	<% end %>
+</div>
