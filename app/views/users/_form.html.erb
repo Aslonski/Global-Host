@@ -25,32 +25,28 @@
 		</div>
 		<!--Gender-->
 		<div class="row">
-			<div class="input-field col s4">
+			<div class="input-field col s3">
 				 <input id="male" type="radio" name="user[gender]" value="male" checked >
 				 <label for="male">Male</label>
 			</div>
-			<div class="input-field col s4">
+			<div class="input-field col s3">
 				 <input id="female" type="radio" name="user[gender]" value="female" checked>
 				 <label for="female">Female</label>
 			</div>
-			<div class="input-field col s4">
+			<div class="input-field col s6">
 				 <input id="other" type="radio" name="user[gender]" value="female" checked>
-				 <label for="other">Other</label>
+				 <label for="other">Non-identified</label>
 			</div>
 		</div>
 		<!-- Email -->
-		<div class="row">
 		 	<div class="input-field col s12">
 				 <input id="email" type="email" class="validate" name="user[email]" value="<%= @user.email %>">
 				 <label for="email">Email</label>
 		 	</div>
- 		</div>
-		<div class="row">
 			<div class="input-field col s12">
 				<input id="password" type="password" class="validate" name="user[password]" value="<%= @user.password %>">
 				<label for="password">Password</label>
 			</div>
-		</div>
 		<!-- City and State/Province -->
 		<div class="row">
 			<div class="input-field col s6">
