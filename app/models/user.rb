@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
   has_many :continued_conversations, foreign_key: :recipient_id, class_name: "Conversation"
   has_many :messages
 
-	validates_presence_of :first_name, :last_name, :email, :city, :state_province, :country, :personal_info, :language, :gender
+	validates_presence_of :first_name, :last_name, :email, :city, :state_province, :country, :language, :gender
 
 	validates_uniqueness_of :email
 

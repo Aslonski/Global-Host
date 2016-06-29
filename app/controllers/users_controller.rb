@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
-  before_filter 'authorize!'
-  before_filter 'self_authenticate(params[:id])', :only => [:delete]
+  before_filter 'authorize!', except: [:new, :create]
+  before_filter 'self_authenticate(params[:id])', :only => [:delete, :edit]
   before_filter :require_search_param, only: :index
 
   def index
@@ -39,7 +39,6 @@ class UsersController < ApplicationController
     @interests = Interest.all
     @user = User.find(params[:id])
     if @user.update(user_params)
-      p user_params
       redirect_to user_path
     else
       render edit_user_path

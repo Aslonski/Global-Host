@@ -1,10 +1,9 @@
 <div class="container col s12">
-  <h4 class="col s12"><span class="category-title">Review Me!</span></h4>
   <%= render '/errors' %>
   <%= form_for :review, url: user_reviews_path do |f| %>
 
-  <h5><span class="category-title">How do you feel about your experience?</span></h5>
-  <%= f.select(:score, [['Terrible, score: 1', 1], ['Bad, score: 2', 2], ['Mediocre, score: 3', 3], ["Good, score: 4", 4], ["Excellent, score: 5", 5]], {}, {:class => 'browser-default'}) %>
+  <h5><span class="category-title">How do you feel about your experience with <%= @user.first_name %> <%= @user.last_name %>?</span></h5>
+  <%= f.select(:score, [['1 - Terrible', 1], ['2 - Bad', 2], ['3 - Mediocre', 3], ["4 - Good", 4], ["5 - Excellent", 5]].reverse, {}, {:class => 'browser-default'}) %>
 
   <div class="row">
     <div class="input-field col s12">

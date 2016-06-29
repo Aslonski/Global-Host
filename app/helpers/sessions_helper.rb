@@ -15,7 +15,7 @@ module SessionsHelper
 	end
 
 	def self_authenticate(id)
-		redirect_to users_search_path unless current_user.id == id
+		redirect_to user_path(@current_user) unless current_user.id == id.to_i
 	end
 
 end
