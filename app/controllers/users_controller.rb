@@ -53,7 +53,7 @@ class UsersController < ApplicationController
   end
 
   def require_search_param
-    redirect_to users_search_path unless params[:search]
+    redirect_to users_search_path if params[:search] = ""
   end
 
 end
