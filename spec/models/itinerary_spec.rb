@@ -21,9 +21,9 @@ RSpec.describe Itinerary, type: :model do
   end
 
   it "returns a collection of locations" do
-    expect(itinerary.locations_finder).to be_kind_of(Array)
+    expect(itinerary.places_info_finder).to be_kind_of(Array)
   end
- 
+
 
   it { should have_many(:activities) }
 
