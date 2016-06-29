@@ -11,11 +11,11 @@ function initMap() {
 }
 
 function centerFinder(){
-  if (window.placesInfo[0]["loc_lat_lng"] && (window.placesInfo.length > 0)) {
-    return window.placesInfo[0]["loc_lat_lng"]
-  } else {
+  // if (window.placesInfo[0] && (window.placesInfo.length > 0)) {
+  //   return window.placesInfo[0]["loc_lat_lng"]
+  // } else {
     return window.mapCenterLocation
-  }
+//   }
 };
 
 function markerMaker(location_obj){

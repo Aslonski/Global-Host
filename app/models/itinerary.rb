@@ -13,16 +13,6 @@ class Itinerary < ActiveRecord::Base
 
   accepts_nested_attributes_for :activities
 
-  def locations_finder
-    @location_data = []
-    locations.each do |location|
-      formatted_address = location.address.split(' ').join('+')
-      address_insert = formatted_address + ",+#{location.city}"
-      @location_data << get_geocode_info(address_insert)
-    end
-    @location_data
-  end
-
   def places_info_finder
     @places_data = []
     idx = 0
@@ -33,7 +23,7 @@ class Itinerary < ActiveRecord::Base
       @places_data[idx][:loc_name] = location.name
       idx += 1
     end
-    p @places_data
+    @places_data
   end
 
   def center_lat_lng
