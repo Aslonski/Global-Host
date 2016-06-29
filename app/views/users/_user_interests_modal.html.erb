@@ -1,8 +1,11 @@
 <a class="waves-effect waves-light btn-small modal-trigger" href="#modal2">Select Your Interests</a>
   <!-- Modal Structure -->
-  <div id="modal2" class="modal modal-fixed-footer"">
+  <div id="modal2" class="modal modal-fixed-footer">
     <div class="modal-content">
       <!-- User Interests -->
+      <p>
+        Please select some interests for us to match you with hosts when you search.
+      </p>
       		<% @interests.all.each do |interest| %>
               <div class="row left-align">
         				<% id = interest.id%>
