@@ -92,9 +92,9 @@ ActiveRecord::Schema.define(version: 20160627142322) do
     t.string   "language"
     t.string   "gender"
     t.string   "password_digest"
-    t.boolean  "is_host"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.boolean  "is_host",         default: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
   end
 
 end
