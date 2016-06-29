@@ -6,7 +6,9 @@ class ItinerariesController < ApplicationController
   # end
 
   def index
-    @itineraries = Itinerary.all
+    @user = current_user
+    @visitor_itineraries = Itinerary.where(visitor_id: current_user.id)
+    @host_itineraries = Itinerary.where(host_id: current_user.id)
   end
 
   def new
@@ -39,6 +41,11 @@ class ItinerariesController < ApplicationController
     redirect_to @itinerary
     # @activity = @itinerary.activity.find(params[:id])
   end
+
+  # def destroy
+  #   @itinerary = Itinerary.find(params[:id])
+  #   @itinerary.destroy
+  # end
 
   private
     def itinerary_params
