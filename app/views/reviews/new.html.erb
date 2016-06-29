@@ -3,7 +3,9 @@
   <%= render '/errors' %>
   <%= form_for :review, url: user_reviews_path do |f| %>
 
-  <div>Score:<%= f.text_field :score %></div>
+  <%= f.label "How do you feel about your host?" %>
+  <%= f.select(:score, [['Terrible host, score: 1', 1], ['Bad host, score: 2', 2], ['Mediocre host, score: 3', 3], ["Good host, score: 4", 4], ["Excellent host, score: 5", 5]], {}, {:class => 'browser-default'}) %>
+
   <div>Header:<br> <%= f.text_field :title %></div>
   <div>Body:<%= f.text_field :body %></div>
 
