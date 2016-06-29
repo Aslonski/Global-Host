@@ -1,7 +1,7 @@
 <div class="container">
-	<%= render '/errors' %>
 	<%= form_for @user, url: users_path do |f| %>
-		<%= render 'form' %>
+	<div class="errors"> <%= render '/errors' %> </div>
+		<%= render partial: 'form', locals: {interests: @interests} %>
 		<%= f.submit "Submit", :class => "waves-effect waves-light btn" %>
 	<% end %>
 </div>

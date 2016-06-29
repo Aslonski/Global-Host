@@ -51,6 +51,10 @@ li {
   margin-bottom: 5px;
 }
 
+.errors {
+  color: red
+}
+
 body {
    background-color: #e1f5fe !important;
 }
