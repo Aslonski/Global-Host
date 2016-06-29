@@ -1,7 +1,7 @@
 <div class="edit-user-form container col s12">
   <%= render '/errors' %>
 	<%= form_for @user, :html => { :method => :put} do |f| %>
-		<%= render 'form' %>
+		<%= render partial: 'form', locals: {interests: @interests} %>
 			<%= f.submit "Save Changes", :class => "form-button waves-effect waves-light btn user-button" %>
 		<% end %>
 </div>
