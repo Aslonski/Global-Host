@@ -60,6 +60,10 @@ li {
   color: red
 }
 
+.slightly-enlarge-text {
+  font-size: 120%
+}
+
 .enlarge-text {
   font-size: 150%
 }
