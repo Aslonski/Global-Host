@@ -42,11 +42,12 @@
     </div>
   </div>
   <div class="confirm-button col s12">
-    <%= button_to "Confirm this Itinerary", confirmation_index_path, remote: true, class: "confirm-button waves-effect waves-light btn" %>
+    <%= button_to "Confirm this Itinerary", confirmation_index_path, remote: true, class: "waves-effect waves-light btn" %>
   </div>
-  <div class="edit-button col s12">
-    <%= button_to "Edit this Itinerary", confirmation_index_path, remote: true, class: "edit-button hidden waves-effect waves-light btn" %>
+  <div class="edit-button hidden col s12">
+    <%= button_to "Edit this Itinerary", confirmation_index_path, remote: true, class: "waves-effect waves-light btn" %>
   </div>
+
 
   <p id="itin-city"> <%= @itinerary.host.city %> </p>
   <div id="map">
