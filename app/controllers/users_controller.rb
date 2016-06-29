@@ -44,16 +44,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def create_interests
-    @interests = Interest.all
-    @user = User.find(params[:id])
-    if @user.update(user_params)
-      redirect_to user_path
-    else
-      render edit_user_path
-    end
-  end
-
   private
 
   def user_params

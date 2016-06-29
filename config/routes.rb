@@ -4,10 +4,7 @@ Rails.application.routes.draw do
   resources :users do
     resources :reviews, only: [:show, :new, :create, :index] do
     end
-    resources :interests, only: [:new, :create, :update, :destroy] do
-    end
   end
-
 
   resources :sessions, only: [:new, :create, :destroy]
 
