@@ -20,7 +20,6 @@
 
 
 RSpec.configure do |config|
-  config.mock_with :mocha
 
   config.before(:suite) do
      DatabaseCleaner.strategy = :transaction
