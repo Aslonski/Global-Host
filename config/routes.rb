@@ -3,9 +3,11 @@ Rails.application.routes.draw do
 
   resources :users do
     resources :reviews, only: [:show, :new, :create, :index] do
-      resources :interests, only: [:create_interests, :update_interests, :create_about_me, :update_about_me] do
+    end
+    resources :interests, only: [:new, :create, :update, :destroy] do
     end
   end
+
 
   resources :sessions, only: [:new, :create, :destroy]
 
