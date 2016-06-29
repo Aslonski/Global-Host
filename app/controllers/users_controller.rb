@@ -1,11 +1,12 @@
 class UsersController < ApplicationController
 
-  before_filter 'authorize!', :only => [:edit, :delete]
+  before_filter 'authorize!', except: [:new, :create]
+  before_filter 'self_authenticate(params[:id])', :only => [:delete]
+  before_filter :require_search_param, only: :index
 
   def index
-    $current = current_user
     @all_city_hosts = User.alternative_matches(current_user.id, params[:search])
-    @users = User.search(params[:search])
+    @users = current_user.search(params[:search])
   end
 
   def new
@@ -50,4 +51,9 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:first_name, :last_name, :email, :city, :state_province, :country, :personal_info, :language, :gender, :is_host, :password, all_interests:[])
   end
+
+  def require_search_param
+    redirect_to users_search_path unless params[:search]
+  end
+
 end
