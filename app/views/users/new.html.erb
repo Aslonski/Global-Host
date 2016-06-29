@@ -9,8 +9,8 @@
 			    <label for="is_host">
 						<h6>Available to guide?</h6>
 			      No
-						<input type="hidden" name="is_host" value="false" class="validate">
-			      <input type="checkbox" name="is_host" value="true" class="validate" id="is_host">
+						<input type="hidden" name="user[is_host]" value="false" class="validate">
+			      <input type="checkbox" name="user[is_host]" value="true" class="validate" id="is_host">
 			      <span class="lever"></span>
 			      Yes
 			    </label>
@@ -18,61 +18,61 @@
 				<!-- First and Last Name -->
 				<div class="row">
 					<div class="input-field col s6">
-						 <input id="first_name" type="text" class="validate" name="first_name" value="<%= @user.first_name %>">
+						 <input id="first_name" type="text" class="validate" name="user[first_name]" value="<%= @user.first_name %>">
 						 <label for="first_name">First Name</label>
 					</div>
 					<div class="input-field col s6">
-	          <input id="last_name" type="text" class="validate" name="last_name" value="<%= @user.last_name %>">
+	          <input id="last_name" type="text" class="validate" name="user[last_name]" value="<%= @user.last_name %>">
 	          <label for="last_name">Last Name</label>
         	</div>
 				</div>
 				<!--Gender-->
 				<div class="row">
 					<div class="input-field col s4">
-						 <input id="male" type="radio" name="gender" value="male" checked >
+						 <input id="male" type="radio" name="user[gender]" value="male" checked >
 						 <label for="male">Male</label>
 					</div>
 					<div class="input-field col s4">
-						 <input id="female" type="radio" name="gender" value="female" checked>
+						 <input id="female" type="radio" name="user[gender]" value="female" checked>
 						 <label for="female">Female</label>
 					</div>
 					<div class="input-field col s4">
-						 <input id="other" type="radio" name="gender" value="female" checked>
+						 <input id="other" type="radio" name="user[gender]" value="female" checked>
 						 <label for="other">Other</label>
 					</div>
 				</div>
 				<!-- Email -->
 				<div class="row">
 				 	<div class="input-field col s12">
-						 <input id="email" type="email" class="validate" name="email" value="<%= @user.email %>">
+						 <input id="email" type="email" class="validate" name="user[email]" value="<%= @user.email %>">
 						 <label for="email">Email</label>
 				 	</div>
 		 		</div>
 				<div class="row">
 					<div class="input-field col s12">
-						<input id="password" type="password" class="validate" name="password" value="<%= @user.password %>">
+						<input id="password" type="password" class="validate" name="user[password]" value="<%= @user.password %>">
 						<label for="password">Password</label>
 					</div>
 				</div>
 				<!-- City and State/Province -->
 				<div class="row">
 					<div class="input-field col s6">
-						 <input id="city" type="text" class="validate" name="city" value="<%= @user.city %>">
+						 <input id="city" type="text" class="validate" name="user[city]" value="<%= @user.city %>">
 						 <label for="city">City</label>
 					</div>
 					<div class="input-field col s6">
-	          <input id="state_province" type="text" class="validate" name="state_province" value="<%= @user.state_province %>">
+	          <input id="state_province" type="text" class="validate" name="user[state_province]" value="<%= @user.state_province %>">
 	          <label for="state_province">State or Province</label>
         	</div>
 				</div>
 				<!-- Country and Language -->
 				<div class="row">
 					<div class="input-field col s6">
-						 <input id="country" type="text" class="validate" name="usercountry" value="<%= @user.country %>">
+						 <input id="country" type="text" class="validate" name="user[country]" value="<%= @user.country %>">
 						 <label for="country">Country</label>
 					</div>
 					<div class="input-field col s6">
-	          <input id="language" type="text" class="validate" name="language" value="<%= @user.language %>">
+	          <input id="language" type="text" class="validate" name="user[language]" value="<%= @user.language %>">
 	          <label for="language">Language</label>
         	</div>
 				</div>
@@ -81,7 +81,7 @@
 					<div class="input-field col s12">
 						<% @interests.all.each do |interest| %>
 						    <% id = interest.id%>
-						    <input id="<%=id%>" name="all_interests[]" value="<%=interest.name%>" type="checkbox">
+						    <input id="<%=id%>" name="user[all_interests][]" value="<%=interest.name%>" type="checkbox">
 						    <label for="<%=id%>"><%= interest.name%></label>
 						  <% end %>
 					</div>
@@ -90,7 +90,7 @@
 				<div class="row">
 			      <div class="row">
 			        <div class="input-field col s12">
-			          <textarea id="personal_info" class="materialize-textarea validate" name="personal_info"><%= @user.personal_info %></textarea>
+			          <textarea id="personal_info" class="materialize-textarea validate" name="user[personal_info]"><%= @user.personal_info %></textarea>
 								<label for="personal_info">About me</label>
 			        </div>
 			      </div>
