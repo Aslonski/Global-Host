@@ -8,14 +8,26 @@ RSpec.describe Conversation, type: :model do
 
   let!(:conversation) {Conversation.create(sender: sender, recipient: recipient)}
 
-  xdescribe "Conversation validations" do
-    it "is not valid without a conversation id" do
+  describe "Conversation validations" do
+    it "is valid with a conversation id" do
       expect(conversation).to be_valid
     end
 
     # xit "is not valid without a user id" do
     #   expect(conversation).to_not be_valid
     # end
+  end
+
+  xdescribe "Make Itinerary" do
+    sender_id = 1
+    host_id = 5
+    conversation_id = 6
+    let(:itin) { Itinerary.create(visitor_id: sender_id, host_id: recipient_id, conversation_id: id) }
+
+    it "creates an itinerary" do
+      expect(make_itinerary).to eq(itin)
+    end
+
   end
 
 
