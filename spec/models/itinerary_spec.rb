@@ -19,6 +19,7 @@ RSpec.describe Itinerary, type: :model do
   it "has a valid date" do
     expect(itinerary.date).to eq("Sept 1, 2016")
   end
+ 
 
   it { should have_many(:activities) }
 

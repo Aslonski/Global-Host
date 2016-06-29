@@ -40,14 +40,18 @@ class User < ActiveRecord::Base
 		where(is_host: true)
 	end
 
+	def self.for_city(city)
+		where(city: city.capitalize)
+	end
+
 	def possible_matches
 		likeminded_users.where.not(id: self.id).distinct
 	end
 
 
-	def self.search(search)
-		city_hosts = hosts.where(city: search.capitalize)
-		matching_hosts = $current.possible_matches
+	def search(search)
+		city_hosts = User.hosts.for_city(search)
+		matching_hosts = self.possible_matches
 		city_hosts & matching_hosts
 	end
 
