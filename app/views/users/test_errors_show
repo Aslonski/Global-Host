@@ -1,0 +1,3 @@
+<% if @errors != nil %>
+  <%= @errors.full_messages_for(:first_name).join(",") %>
+<% end %>

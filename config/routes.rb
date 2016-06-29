@@ -16,6 +16,7 @@ Rails.application.routes.draw do
 
   # this needs addressing
   resources :itineraries do
+    put :complete
     resources :activities do
       resources :locations
     end
