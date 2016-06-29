@@ -3,9 +3,24 @@
   <%= render '/errors' %>
   <%= form_for :review, url: user_reviews_path do |f| %>
 
-  <div>Score:<%= f.text_field :score %></div>
-  <div>Header:<br> <%= f.text_field :title %></div>
-  <div>Body:<%= f.text_field :body %></div>
+  <h5><span class="category-title">How do you feel about your experience?</span></h5>
+  <%= f.select(:score, [['Terrible, score: 1', 1], ['Bad, score: 2', 2], ['Mediocre, score: 3', 3], ["Good, score: 4", 4], ["Excellent, score: 5", 5]], {}, {:class => 'browser-default'}) %>
+
+  <div class="row">
+    <div class="input-field col s12">
+       <input id="title" type="text" class="validate" name="review[title]" value="<%= @review.title %>">
+       <label for="title">Title</label>
+    </div>
+  </div>
+  <div class="row">
+      <div class="row">
+        <div class="input-field col s12">
+          <textarea id="body" class="materialize-textarea validate" name="review[body]"><%= @review.body %></textarea>
+          <label for="body">Tell us about your experience:</label>
+        </div>
+      </div>
+  </div>
+
 
   <%= f.hidden_field :reviewee_id, value: @user.id %>
   <%= f.hidden_field :reviewer_id, value: current_user.id %>
