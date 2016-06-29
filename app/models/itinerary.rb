@@ -19,9 +19,6 @@ class Itinerary < ActiveRecord::Base
       formatted_address = location.address.split(' ').join('+')
       address_insert = formatted_address + ",+#{location.city}"
       @locationJsons << get_geocode(address_insert)
-      # response = HTTParty.get("https://maps.googleapis.com/maps/api/geocode/json?address=#{formatted_address},+#{location.city}&key=#{ENV["GOOGLE_GEOCODE_KEY"]}")
-      # location_data = JSON.parse(response.body)
-      # @locationJsons << location_data["results"].first["geometry"]["location"]
     end
     @locationJsons
   end
@@ -29,10 +26,6 @@ class Itinerary < ActiveRecord::Base
   def center_lat_lng
     return unless city
     return @center_lat_lng if @center_lat_lng
-
-    # response = HTTParty.get("https://maps.googleapis.com/maps/api/geocode/json?address=#{city}&key=#{ENV["GOOGLE_GEOCODE_KEY"]}")
-    # location_data = JSON.parse(response.body)
-    # @center_lat_lng = location_data["results"].first["geometry"]["location"]
     @center_lat_lng = get_geocode(city)
   end
 
