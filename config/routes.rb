@@ -21,4 +21,5 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :confirmation, only: [:index]
 end

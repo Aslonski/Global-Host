@@ -34,6 +34,9 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'factory_girl'
 gem 'capybara'
 gem 'faker'
+gem 'httparty'
+gem 'rails_12factor', group: :production
+
 
 
 # Use Unicorn as the app server

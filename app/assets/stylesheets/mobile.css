@@ -11,6 +11,11 @@ html, body {
   text-align: center;
 }
 
+.hidden {
+  display: none;
+  visibility: hidden;
+}
+
 #search-bar {
   text-align: center;
 }
@@ -61,8 +66,8 @@ body {
 }
 
 #map {
-  height: 250px;
-  border: 1px black;
+  height: 300px;
+  margin-bottom: 25px;
 }
 
 #itin-city {
