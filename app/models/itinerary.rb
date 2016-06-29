@@ -1,4 +1,6 @@
 class Itinerary < ActiveRecord::Base
+  include MapsHelper
+
   has_many :activities
   has_many :locations, through: :activities
 
@@ -15,10 +17,11 @@ class Itinerary < ActiveRecord::Base
     @locationJsons = []
     locations.each do |location|
       formatted_address = location.address.split(' ').join('+')
-
-      response = HTTParty.get("https://maps.googleapis.com/maps/api/geocode/json?address=#{formatted_address},+#{location.city}&key=#{ENV["GOOGLE_GEOCODE_KEY"]}")
-      location_data = JSON.parse(response.body)
-      @locationJsons << location_data["results"].first["geometry"]["location"]
+      address_insert = formatted_address + ",+#{location.city}"
+      @locationJsons << get_geocode(address_insert)
+      # response = HTTParty.get("https://maps.googleapis.com/maps/api/geocode/json?address=#{formatted_address},+#{location.city}&key=#{ENV["GOOGLE_GEOCODE_KEY"]}")
+      # location_data = JSON.parse(response.body)
+      # @locationJsons << location_data["results"].first["geometry"]["location"]
     end
     @locationJsons
   end
@@ -31,12 +34,6 @@ class Itinerary < ActiveRecord::Base
     # location_data = JSON.parse(response.body)
     # @center_lat_lng = location_data["results"].first["geometry"]["location"]
     @center_lat_lng = get_geocode(city)
-  end
-
-  def get_geocode(location_info)
-    response = HTTParty.get("https://maps.googleapis.com/maps/api/geocode/json?address=#{location_info}&key=#{ENV["GOOGLE_GEOCODE_KEY"]}")
-    location_data = JSON.parse(response.body)
-    location_data["results"].first["geometry"]["location"]
   end
 
   def city
