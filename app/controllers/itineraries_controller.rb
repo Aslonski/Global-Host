@@ -27,6 +27,7 @@ class ItinerariesController < ApplicationController
 
   def show
     @itinerary = Itinerary.find(params[:id])
+    @activity = Activity.new
     @activities = @itinerary.activities
   end
 
