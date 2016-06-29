@@ -1,0 +1,13 @@
+<%= form_for [itinerary, activity] do |f| %>
+  <%= f.label :description %>:
+  <%= f.text_field :description %>
+  <%= f.fields_for :location do |ff| %>
+      <%= ff.label :name %>:
+      <%= ff.text_field :name %>
+      <%= ff.label :address %>:
+      <%= ff.text_field :address %>
+      <%= ff.label :city %>:
+      <%= ff.text_field :city %>
+    <% end %>
+  <%= f.submit "Save Changes", :class => "waves-effect waves-light btn user-button" %>
+<% end %>
