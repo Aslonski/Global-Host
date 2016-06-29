@@ -36,9 +36,9 @@
       </ul>
     <% end %>
 
-  <div class="row">
-    <div class="col s12">
-      <%= link_to "Add an Activity", new_itinerary_activity_path(@itinerary, @activity), class: "waves-effect waves-light btn" %>
+    <div class="activity-buttons col s12">
+      <div class="row">
+        <%= link_to "Add an Activity", new_itinerary_activity_path(@itinerary, @activity), class: "waves-effect waves-light btn" %>
     </div>
   </div>
   <div class="confirm-button col s12">
@@ -53,7 +53,7 @@
   </div>
   <div class="complete-button hidden col s12">
     <div class="row">
-      <%= button_to "Finish this Trip", itinerary_complete_path(@itinerary), method: :put, class: "waves-effect waves-light btn" %>
+      <%= button_to "Finish this Trip (and review host)", itinerary_complete_path(@itinerary), method: :put, class: "waves-effect waves-light btn" %>
     </div>
   </div>
 
