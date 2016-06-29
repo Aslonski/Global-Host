@@ -15,8 +15,7 @@ class UsersController < ApplicationController
 
   def create
     @interests = Interest.all
-    @user = User.new(user_params_registration_form)
-    p user_params_registration_form
+    @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
       redirect_to users_search_path
@@ -31,10 +30,12 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @interests = Interest.all
     @user = User.find(params[:id])
   end
 
   def update
+    @interests = Interest.all
     @user = User.find(params[:id])
     if @user.update(user_params)
       p user_params
@@ -45,12 +46,8 @@ class UsersController < ApplicationController
   end
 
   private
-  # @advisor - .require does not work with materialize form
-  def user_params_registration_form
-    params.permit(:first_name, :last_name, :email, :city, :state_province, :country, :personal_info, :language, :gender, :is_host, :password, all_interests:[])
-  end
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :city, :state_province, :country, :personal_info, :language, :gender, :is_host, :password, :all_interests)
+    params.require(:user).permit(:first_name, :last_name, :email, :city, :state_province, :country, :personal_info, :language, :gender, :is_host, :password, all_interests:[])
   end
 end
