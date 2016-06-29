@@ -60,6 +60,10 @@ li {
   color: red
 }
 
+.enlarge-text {
+  font-size: 150%
+}
+
 body {
    background-color: #e1f5fe !important;
 }
@@ -78,4 +82,3 @@ body {
 #itin-city {
   display: none;
 }
-
