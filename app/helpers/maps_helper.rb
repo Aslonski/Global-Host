@@ -8,7 +8,7 @@ module MapsHelper
     g_info = {
       loc_lat_lng: location_data["results"].first["geometry"]["location"],
       loc_place_id: location_data["results"].first["place_id"],
-
+      loc_address: location_data["results"].first["formatted_address"]
     }
   end
 

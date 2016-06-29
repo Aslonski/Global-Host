@@ -6,7 +6,6 @@ function initMap() {
   });
 
   window.placesInfo.forEach(function(location_obj){
-    // console.log(location_obj)
     return markerMaker(location_obj)
   })
 }
@@ -20,8 +19,11 @@ function centerFinder(){
 };
 
 function markerMaker(location_obj){
+  var locationDetails = `<strong>${location_obj["loc_name"]}</strong><br>`+
+  `${location_obj["loc_address"]}`
+
   var infoWindow = new google.maps.InfoWindow({
-    content: location_obj["loc_name"]
+    content: locationDetails
   });
 
   var marker = new google.maps.Marker({
