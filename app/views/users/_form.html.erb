@@ -24,7 +24,6 @@
 			</label>
 		</div>
 		<!--Gender-->
-		<div class="row">
 			<div class="input-field col s3">
 				 <input id="male" type="radio" name="user[gender]" value="male" checked >
 				 <label for="male">Male</label>
@@ -37,7 +36,6 @@
 				 <input id="other" type="radio" name="user[gender]" value="female" checked>
 				 <label for="other">Non-identified</label>
 			</div>
-		</div>
 		<!-- Email -->
 		 	<div class="input-field col s12">
 				 <input id="email" type="email" class="validate" name="user[email]" value="<%= @user.email %>">
@@ -48,7 +46,6 @@
 				<label for="password">Password</label>
 			</div>
 		<!-- City and State/Province -->
-		<div class="row">
 			<div class="input-field col s6">
 				 <input id="city" type="text" class="validate" name="user[city]" value="<%= @user.city %>">
 				 <label for="city">City</label>
@@ -57,27 +54,14 @@
         <input id="state_province" type="text" class="validate" name="user[state_province]" value="<%= @user.state_province %>">
         <label for="state_province">State or Province</label>
     	</div>
-		</div>
 		<!-- Country and Language -->
-		<div class="row">
 			<div class="input-field col s6">
 				 <input id="country" type="text" class="validate" name="user[country]" value="<%= @user.country %>">
 				 <label for="country">Country</label>
 			</div>
 			<div class="input-field col s6">
         <input value="English" id="language" type="text" class="validate" name="user[language]" value="<%= @user.language %>">
-        <label class="active" for="language">Language</label>
+        <label class="active" for="language">Languages</label>
     	</div>
 		</div>
-		<!-- User Interests -->
-		<div class="row">
-			<div class="input-field col s12">
-				<% @interests.all.each do |interest| %>
-				    <% id = interest.id%>
-				    <input id="<%=id%>" name="user[all_interests][]" value="<%=interest.name%>" type="checkbox">
-				    <label for="<%=id%>"><%= interest.name%></label>
-				  <% end %>
-			</div>
-		</div>
 	</div>
-</div>
