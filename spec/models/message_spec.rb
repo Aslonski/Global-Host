@@ -6,9 +6,9 @@ RSpec.describe Message, type: :model do
   let(:andrey) {User.create!(first_name: "Andrey", last_name: "Slonski", city: "Cincinatti", password_digest: "password",
   email: "a@a.a", state_province: "OH", country: "USA", personal_info: "Is a cool guy too", language: "English", gender: "male", is_host: true)}
 
-  let(:conversation) {Conversation.create(sender: patrick, recipient: andrey)}
+  let(:conversation) {Conversation.create(sender_id: patrick.id, recipient_id: andrey.id)}
 
-  let(:message) {conversation.messages.create!(body: "Sweet message!", conversation_id: 99, user_id: 99, read: true)}
+  let(:message) {conversation.messages.create!(body: "Sweet message!", conversation_id: conversation.id, user_id: patrick.id, read: true)}
 
   describe "Message validations" do
     it "is not valid without a body" do
@@ -24,7 +24,7 @@ RSpec.describe Message, type: :model do
     end
   end
 
-  xdescribe "Message structure" do
+  describe "Message structure" do
     it "has a body" do
       expect(message.body).to eq("Sweet message!")
     end
@@ -36,13 +36,10 @@ RSpec.describe Message, type: :model do
     it "can be marked as read" do
       expect(message.read).to be true
     end
-  end
 
-  xdescribe "custom message time display" do
-
-  end
-
-  xdescribe "Message associations" do
+    it "has a recipient" do
+      expect(conversation.recipient_id).to eq andrey.id
+    end
 
   end
 
