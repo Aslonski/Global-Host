@@ -1,9 +1,10 @@
 <div class="container">
-<h5 class="col s12"><span class="category-title">Reviews For: <%= link_to "#{@user.first_name} #{@user.last_name}", user_path(@user) %></span></h5>
+  <%= image_tag "baker", alt: "user-profile-img", class: "circle responsive-img" %>
+  <h5 class="col s12"><span class="category-title">Reviews For: <%= link_to "#{@user.first_name} #{@user.last_name}", user_path(@user) %></span></h5>
 
   <ul>
     <% @reviews.each do |review| %>
-      <div class="row">
+      <div class="row hoverable">
         <p class="col s12"><span class="category-title"><%= review.title %> | score: <%= review.score %></span></p>
         <% author = User.find(review.reviewer_id) %>
         <p class="col s12"><span class="category-title">Reviewed by: <%= link_to "#{author.first_name } #{author.last_name}", user_path(review.reviewer_id) %></span></p>
