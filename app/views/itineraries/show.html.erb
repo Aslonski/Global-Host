@@ -36,55 +36,39 @@
       </ul>
     <% end %>
 
-  <div class="activity-buttons col s12">
-    <div class="row">
+  <div class="row">
+    <div class="col s12">
       <%= link_to "Add an Activity", new_itinerary_activity_path(@itinerary, @activity), class: "waves-effect waves-light btn" %>
-  </div>
+    </div>
   </div>
   <div class="confirm-button col s12">
-    <div class="row">
-      <%= button_to "Confirm this Itinerary", confirmation_index_path, remote: true, class: "waves-effect waves-light btn" %>
-    </div>
+    <%= button_to "Confirm this Itinerary", confirmation_index_path, remote: true, class: "waves-effect waves-light btn" %>
   </div>
   <div class="edit-button hidden col s12">
-    <div class="row">
-      <%= button_to "Edit this Itinerary", confirmation_index_path, remote: true, class: "waves-effect waves-light btn" %>
-    </div>
+    <%= button_to "Edit this Itinerary", confirmation_index_path, remote: true, class: "waves-effect waves-light btn" %>
   </div>
-  <div class="complete-button hidden col s12">
-    <div class="row">
-      <%= button_to "Finish this Trip (and review host)", itinerary_complete_path(@itinerary), method: :put, class: "waves-effect waves-light btn" %>
-    </div>
-  </div>
-
 
   <div id="map">
-    </div>
+  </div>
 
     <script>
       window.mapCenterLocation = <%= raw @itinerary.center_lat_lng.to_json %>;
     </script>
-    <script>
-      window.locationsCollection = <%= raw @itinerary.locations_finder.to_json %>
-    </script>
 
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBgaK6AdncBCkgkSFtzvgksSEkF3TVBz1E&callback=initMap" async defer></script>
-    <%=  %>
-
-    <% if @itinerary.visitor_id == current_user.id %>
-    <div class="delete-itinerary-button col s12">
-      <div class="row">
-        <%= button_to "Delete this Itinerary", itinerary_path(@itinerary), method: :delete, class: "waves-effect waves-light btn" %>
-      </div>
-    </div>
-  </div>
-  <% end %>
-  <script>
-    window.mapCenterLocation = <%= raw @itinerary.center_lat_lng.to_json %>;
-    window.placesInfo = <%= raw @itinerary.places_info_finder.to_json %>
-  </script>
-
+    <% if !@itinerary.locations.empty? && @itinerary.locations.first.name.length != 0 %>
+      <script >
+        window.placesInfo = <%= raw @itinerary.places_info_finder.to_json %>
+      </script>
+    <% end %>
 
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBgaK6AdncBCkgkSFtzvgksSEkF3TVBz1E&callback=initMap&libraries=places" async defer></script>
-  <%=  %>
+
+  <% if @itinerary.visitor_id == current_user.id %>
+    <div class="delete-itinerary-button col s12">
+      <div class="row">
+        <%= button_to "Delete This Itinerary", itinerary_path(@itinerary), method: :delete, class: "waves-effect waves-light btn" %>
+
+      </div>
+    </div>
+  <% end %>
 </div>
