@@ -5,9 +5,11 @@ function initMap() {
     zoom: 12
   });
 
-  window.placesInfo.forEach(function(location_obj){
-    return markerMaker(location_obj)
-  })
+  if (window.hasOwnProperty('placesInfo')) {
+    window.placesInfo.forEach(function(location_obj){
+      return markerMaker(location_obj)
+    })
+  }
 }
 
 function centerFinder(){
