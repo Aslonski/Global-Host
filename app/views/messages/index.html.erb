@@ -1,5 +1,9 @@
 <div class="container">
-  <h3>Send a Message</h3>
+  <% if @conversation.sender != current_user %>
+    <h3><%= @conversation.sender.first_name%></h3>
+  <% else %>
+    <h3><%= @conversation.recipient.first_name%></h3>
+  <% end %>
   <ul>
   <% @messages.each do |message| %>
 
@@ -8,7 +12,7 @@
       <div class="col s8 offset-s4 m5">
         <div class="card-panel sent-message">
           <span class="white-text">
-            <%= message.body %>
+            <%= link_to message.user.first_name, message.user.first_name %>: <%= message.body %>
           </span>
         </div>
       </div>
@@ -17,6 +21,7 @@
       <div class="col s8 m5">
         <div class="card-panel received-message">
           <span class="white-text">
+            <%= link_to message.user.first_name, message.user.first_name %>:
             <%= message.body %>
           </span>
         </div>
