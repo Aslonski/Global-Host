@@ -60,26 +60,6 @@
   <div id="map">
     </div>
 
-
-    <script>
-      window.mapCenterLocation = <%= raw @itinerary.center_lat_lng.to_json %>;
-    </script>
-    <script>
-      window.locationsCollection = <%= raw @itinerary.locations_finder.to_json %>
-    </script>
-
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBgaK6AdncBCkgkSFtzvgksSEkF3TVBz1E&callback=initMap" async defer></script>
-    <%=  %>
-
-    <% if @itinerary.visitor_id == current_user.id %>
-    <div class="delete-itinerary-button col s12">
-      <div class="row">
-        <%= button_to "Delete this Itinerary", itinerary_path(@itinerary), method: :delete, class: "waves-effect waves-light btn" %>
-      </div>
-    </div>
-  </div>
-  <% end %>
-
     <script>
       window.mapCenterLocation = <%= raw @itinerary.center_lat_lng.to_json %>;
     </script>
