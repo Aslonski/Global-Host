@@ -24,6 +24,10 @@ li {
   list-style-type: none;
 }
 
+.itin-row {
+  margin-top: 0px;
+}
+
 .activity-name {
   font-style: italic;
 }
