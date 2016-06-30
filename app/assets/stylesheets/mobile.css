@@ -72,6 +72,27 @@ li {
   font-size: 150%;
 }
 
+.all-reviews-card {
+  width: 250px;
+  max-height: 89px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-bottom: 0px;
+}
+
+.all-reviews-card {
+  width: 300px;
+  max-height: 89px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-bottom: 0px;
+}
+
+
+.card-panel {
+  padding-bottom: 0px;
+}
+
 body {
    background-color: #e1f5fe !important;
 }

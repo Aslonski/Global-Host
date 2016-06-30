@@ -7,16 +7,18 @@
 				<ul>
 					<li>
 					  <div class="col s12 m8 offset-m2 l6 offset-l3">
-			        <div class="card-panel grey lighten-5 z-depth-1 hoverable">
+			        <div class="card-panel grey lighten-5 z-depth-1 hoverable left-align">
 			          <div class="row valign-wrapper">
 			            <div class="col s2">
 			              <%= image_tag "baker", alt: "user-profile-img", class: "circle responsive-img" %>
 			            </div>
 			            <div class="col s10">
 			              <span class="black-text slightly-enlarge-text">
-			                <%= link_to user.first_name, user_path(user)  %> - <%= user.city %> - Rating: <%= link_to "#{ user.overall_score }/5", user_review_path(user.id, review.id) %></span>
+			                <%= link_to user.first_name, user_path(user)  %> - <%= user.city %>
+											<br>
+											Rating: <%= link_to "#{ user.overall_score }/5", user_review_path(user.id, review.id) %></span>
 										</span>
-											<p class="black-text"> <%= user.personal_info %> </p>
+											<p class="black-text search-results-card"> <%= user.personal_info %> </p>
 			            </div>
 			          </div>
 			        </div>
