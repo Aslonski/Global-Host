@@ -5,7 +5,7 @@
   </div>
 
   <% if @user.is_host == true %>
-    <i class="small material-icons">navigation</i> Visitor and Host
+    <i class="small material-icons">person_pin_circle</i> Available to host!
   <% else %>
     Visitor
   <% end %>
@@ -23,7 +23,7 @@
           </div>
           <% end %>
         </p>
-    <p class="col s12"><span class="category-title">Personal info: </span><%= @user.personal_info %></p>
+    <p class="col s12"><span class="category-title">Personal info: <br></span><%= @user.personal_info %></p>
     <p class="col s12"><span class="category-title">Location: </span><%= @user.city %>, <%= @user.state_province %>, <%= @user.country %></p>
     <p class="col s12"><span class="category-title">Main language: </span><%= @user.language %></p>
     <p class="col s12"><span class="category-title">Gender: </span><%= @user.gender %></p>

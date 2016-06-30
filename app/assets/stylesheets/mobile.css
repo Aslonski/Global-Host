@@ -11,9 +11,17 @@ html, body {
   text-align: center;
 }
 
+.main-header {
+  background-color: #113E61;
+}
+
 .hidden {
   display: none;
   visibility: hidden;
+}
+
+.link-color {
+  color: #113E61;
 }
 
 #search-bar {
@@ -68,12 +76,29 @@ li {
   font-size: 80%;
 }
 
+.card-panel {
+  border-radius: 20px !important;
+}
+
 .slightly-enlarge-text {
   font-size: 120%;
 }
 
 .enlarge-text {
   font-size: 150%;
+}
+
+.sent-message {
+  background-color: #F84300 !important;
+}
+
+.received-message {
+  background-color: #2CBFC5 !important;
+}
+
+.chip {
+  background-color: #FFE177 !important;
+  color: black !important;
 }
 
 .search-results-card {
@@ -93,7 +118,6 @@ li {
 .review-show-paragrah {
   max-width: 350px;
 }
-
 
 body {
    background-color: #e1f5fe !important;
