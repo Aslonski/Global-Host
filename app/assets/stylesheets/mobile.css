@@ -73,11 +73,10 @@ li {
 }
 
 .search-results-card {
-  width: 250px;
+  max-width: 245px;
   max-height: 89px;
   overflow: hidden;
   text-overflow: ellipsis;
-  padding-bottom: 0px;
 }
 
 .all-reviews-card {
@@ -85,13 +84,12 @@ li {
   max-height: 89px;
   overflow: hidden;
   text-overflow: ellipsis;
-  padding-bottom: 0px;
 }
 
-
-.card-panel {
-  padding-bottom: 0px;
+.review-show-paragrah {
+  max-width: 350px;
 }
+
 
 body {
    background-color: #e1f5fe !important;
