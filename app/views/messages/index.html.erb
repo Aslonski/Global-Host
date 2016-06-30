@@ -1,22 +1,27 @@
 <div class="container">
-  <h3>Send a Message</h3>
+  <% if @conversation.sender != current_user %>
+    <h3><%= @conversation.sender.first_name%></h3>
+  <% else %>
+    <h3><%= @conversation.recipient.first_name%></h3>
+  <% end %>
   <ul>
   <% @messages.each do |message| %>
 
     <div class="row">
     <% if current_user.id == message.user_id %>
       <div class="col s8 offset-s4 m5">
-        <div class="card-panel green lighten-3">
+        <div class="card-panel sent-message">
           <span class="white-text">
-            <%= message.body %>
+            <%= link_to message.user.first_name + ": ", message.user, class: "link-color"%> <%= message.body %>
           </span>
         </div>
       </div>
       <% else %>
         <% message.update(read: true) %>
       <div class="col s8 m5">
-        <div class="card-panel blue lighten-1">
+        <div class="card-panel received-message">
           <span class="white-text">
+            <%= link_to message.user.first_name + ": ", message.user, class: "link-color" %>:
             <%= message.body %>
           </span>
         </div>
@@ -28,8 +33,10 @@
 
   <%= render :partial => 'form' %>
 
+  <br>
   <div class="row">
-    <h5 class="col s12">Go To Your Itinerary!</h5>
+    <h5 class="col s12">Like this host?</h5>
+    <h5 class="col s12">Add activities to your itinerary!</h5>
   </div>
   <div class="row">
     <div class="col s12">

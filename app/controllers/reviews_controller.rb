@@ -23,6 +23,7 @@ class ReviewsController < ApplicationController
 
   def show
     @user = User.find(params[:user_id])
+    @reviews = Review.all.where(reviewee_id: @user.id)
     @review = Review.find(params[:id])
   end
 

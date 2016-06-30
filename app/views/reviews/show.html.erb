@@ -1,20 +1,12 @@
-<div class="under-nav-bar">
-
-<div class="review-header">
-  <h2>Review</h2>
-</div>
-
-<div class="indiv-review-box">
-
-  <div class="review-body">
-    <%= @review.body %>
-  </div>
-  <div class="review-author">
-    Written By: <%= @review.reviewer.name %>
-  </div>
-
-  <div class="review-score">
-    Score: <%= @review.score%>/10
+<div class="container">
+  <%= image_tag "baker", alt: "user-profile-img", class: "circle responsive-img" %>
+  <div class="category-title slightly-enlarge-text"><span class="category-title">Review For: <%= link_to "#{@user.first_name} #{@user.last_name}", user_path(@user) %></span></div>
+<hr class="user-page-hr">
+  <div class="row">
+    <span class="col s12 enlarge-text category-title"><%= @review.title %> | score: <%= @review.score %>/5</span>
+    <% author = User.find(@review.reviewer_id) %>
+    <span class="col s12 category-title">Reviewed by: <%= link_to "#{author.first_name } #{author.last_name}", user_path(@review.id) %></span>
+    <p class="col s12 push-s1 flow-text left-align review-show-paragrah"><%= @review.body %></p>
   </div>
 
 </div>

@@ -11,9 +11,17 @@ html, body {
   text-align: center;
 }
 
+.main-header {
+  background-color: #113E61;
+}
+
 .hidden {
   display: none;
   visibility: hidden;
+}
+
+.link-color {
+  color: #113E61;
 }
 
 #search-bar {
@@ -22,6 +30,10 @@ html, body {
 
 li {
   list-style-type: none;
+}
+
+.itin-row {
+  margin-top: 0px;
 }
 
 .activity-name {
@@ -57,15 +69,54 @@ li {
 }
 
 .errors {
-  color: red
+  color: red;
+}
+
+.small-text {
+  font-size: 80%;
+}
+
+.card-panel {
+  border-radius: 20px !important;
 }
 
 .slightly-enlarge-text {
-  font-size: 120%
+  font-size: 120%;
 }
 
 .enlarge-text {
-  font-size: 150%
+  font-size: 150%;
+}
+
+.sent-message {
+  background-color: #F84300 !important;
+}
+
+.received-message {
+  background-color: #2CBFC5 !important;
+}
+
+.chip {
+  background-color: #FFE177 !important;
+  color: black !important;
+}
+
+.search-results-card {
+  max-width: 245px;
+  max-height: 89px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.all-reviews-card {
+  width: 300px;
+  max-height: 89px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.review-show-paragrah {
+  max-width: 350px;
 }
 
 body {
