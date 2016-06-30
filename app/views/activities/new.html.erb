@@ -1,17 +1,17 @@
-<div class="row">
-  <div class="container col s12">
-    <%= form_for [@itinerary, @activity] do |f| %>
-      <%= f.label :description %>:
-      <%= f.text_field :description %>
-      <%= f.fields_for @location do |ff| %>
-        <%= ff.label :name %>:
-        <%= ff.text_field :name %>
-        <%= ff.label :address %>:
-        <%= ff.text_field :address %>
-        <%= ff.label :city %>:
-        <%= ff.text_field :city %>
-        <% end %>
-      <%= f.submit "Create New Activity", :class => "waves-effect waves-light btn user-button" %>
-    <% end %>
-  </div>
+<div class="container new-activity col s12">
+  <h3>Add an activity to your itinerary!</h3>
+  <%= form_for [@itinerary, @activity] do |f| %>
+    <%= f.label :description %>:
+    <%= f.text_field :description, placeholder: "Name an activity you would like to take part in...", class: "center" %>
+    <%= f.fields_for @location do |ff| %>
+      <%= ff.label :name %>:
+      <%= ff.text_field :name, placeholder: "...and your host will pick the best place to do it!", class: "center" %>
+      <%= ff.label :address %>:
+      <%= ff.text_field :address, placeholder: "(Don't worry, your host will take care of this too!)", class: "center" %>
+      <%= ff.label :city %>:
+      <%= ff.text_field :city, placeholder: "(...and this!)", class: "center" %>
+      <% end %>
+    <%= f.submit "Create New Activity", :class => "waves-effect waves-light btn user-button" %>
+  <% end %>
 </div>
+
