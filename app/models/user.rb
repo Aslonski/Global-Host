@@ -50,7 +50,7 @@ class User < ActiveRecord::Base
 
 
 	def search(search)
-		city_hosts = User.hosts.for_city(search)
+		city_hosts = User.hosts.for_city(search.capitalize)
 		matching_hosts = self.possible_matches
 		city_hosts & matching_hosts
 	end
