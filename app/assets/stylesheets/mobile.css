@@ -57,15 +57,19 @@ li {
 }
 
 .errors {
-  color: red
+  color: red;
+}
+
+.small-text {
+  font-size: 80%;
 }
 
 .slightly-enlarge-text {
-  font-size: 120%
+  font-size: 120%;
 }
 
 .enlarge-text {
-  font-size: 150%
+  font-size: 150%;
 }
 
 body {
