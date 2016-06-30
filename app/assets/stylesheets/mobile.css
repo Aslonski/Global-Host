@@ -101,6 +101,24 @@ li {
   color: black !important;
 }
 
+.search-results-card {
+  max-width: 245px;
+  max-height: 89px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.all-reviews-card {
+  width: 300px;
+  max-height: 89px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.review-show-paragrah {
+  max-width: 350px;
+}
+
 body {
    background-color: #e1f5fe !important;
 }
