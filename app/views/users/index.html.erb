@@ -15,15 +15,12 @@
 			            <div class="col s9">
 			              <span class="black-text slightly-enlarge-text">
 			                <%= link_to user.first_name, user_path(user)  %> - <%= user.city %>
-										<br>
+											<br>
 											Rating: <%= link_to "#{ user.overall_score }/5", user_review_path(user.id, review.id) %></span>
 										</span>
-									</div>
-								</div>
-										<br>
-										<span class="row black-text search-results-card left-align">
-											<%= user.personal_info %>
-										</span>
+											<p class="black-text search-results-card"> <%= user.personal_info %> </p>
+			            </div>
+			          </div>
 			        </div>
 			      </div>
 					</li>
