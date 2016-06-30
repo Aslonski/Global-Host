@@ -11,6 +11,10 @@ html, body {
   text-align: center;
 }
 
+.main-header {
+  background-color: #113E61;
+}
+
 .hidden {
   display: none;
   visibility: hidden;
@@ -74,6 +78,16 @@ li {
 
 .enlarge-text {
   font-size: 150%;
+}
+
+.sent-message {
+  background-color: #F84300 !important;
+  color: black !important;
+}
+
+.chip {
+  background-color: #FFE177 !important;
+  color: black !important;
 }
 
 body {

@@ -6,7 +6,7 @@
     <div class="row">
     <% if current_user.id == message.user_id %>
       <div class="col s8 offset-s4 m5">
-        <div class="card-panel green lighten-3">
+        <div class="card-panel sent-message">
           <span class="white-text">
             <%= message.body %>
           </span>
@@ -15,7 +15,7 @@
       <% else %>
         <% message.update(read: true) %>
       <div class="col s8 m5">
-        <div class="card-panel blue lighten-1">
+        <div class="card-panel received-message">
           <span class="white-text">
             <%= message.body %>
           </span>
