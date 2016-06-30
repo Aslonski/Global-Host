@@ -1,5 +1,5 @@
 <div class="container">
-	<h4>Here's the available hosts for your destination:</h4>
+	<h4>Here are the available hosts for your destination:</h4>
 	<div class="row">
 		<div class="col s12">
 		<% if !@users.empty? %>
@@ -17,7 +17,10 @@
 			              <span class="black-text slightly-enlarge-text">
 			                <%= link_to user.first_name, user_path(user)  %> - <%= user.city %>
 											<br>
-											Rating: <%= link_to "#{ user.overall_score }/5", user_review_path(user.id, review.id) %></span>
+											<% if review != nil %>
+												Rating: <%= link_to "#{ user.overall_score }/5", user_review_path(user.id, review.id) %></span>
+											<% end %>
+
 										</span>
 											<p class="black-text search-results-card"> <%= user.personal_info %> </p>
 			            </div>
@@ -51,10 +54,10 @@
 			  </div>
 			<% end %>
 			  <div class="row">
-				<div class="col s12">
-					<h5>...or try another city<h5>
+					<div class="col s12">
+						<h5>...or try another city<h5>
+					</div>
 				</div>
-			</div>
 			<%= render 'search_field' %>
 		<% elsif @users.empty? && @all_city_hosts.empty? %>
 			<div class="row">
