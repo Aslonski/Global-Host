@@ -12,7 +12,7 @@
       <div class="col s8 offset-s4 m5">
         <div class="card-panel sent-message">
           <span class="white-text">
-            <%= link_to message.user.first_name, message.user.first_name %>: <%= message.body %>
+            <%= link_to message.user.first_name + ": ", message.user, class: "link-color"%> <%= message.body %>
           </span>
         </div>
       </div>
@@ -21,7 +21,7 @@
       <div class="col s8 m5">
         <div class="card-panel received-message">
           <span class="white-text">
-            <%= link_to message.user.first_name, message.user.first_name %>:
+            <%= link_to message.user.first_name + ": ", message.user, class: "link-color" %>:
             <%= message.body %>
           </span>
         </div>
@@ -33,6 +33,7 @@
 
   <%= render :partial => 'form' %>
 
+  <br>
   <div class="row">
     <h5 class="col s12">Like this host?</h5>
     <h5 class="col s12">Add activities to your itinerary!</h5>
