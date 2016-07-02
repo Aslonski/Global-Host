@@ -2,7 +2,7 @@
 
 # Global-Host
 Friends in far places
-DBC - Final Project
+DBC - Final Project <a href="https://global-host.herokuapp.com/">Global-Host</a>
 
 <table>
   <tr>
