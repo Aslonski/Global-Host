@@ -1,8 +1,7 @@
 [ ![Codeship Status for Aslonski/Global-Host](https://codeship.com/projects/060ac680-1862-0134-3b27-2a776fb5d411/status?branch=master)](https://codeship.com/projects/158675)
 
 # Global-Host
-Friends in far places
-DBC - Final Project <a href="https://global-host.herokuapp.com/">Global-Host</a>
+<a href="https://global-host.herokuapp.com/">Global-Host, Friends in far places</a>
 
 <table>
   <tr>
@@ -18,7 +17,7 @@ DBC - Final Project <a href="https://global-host.herokuapp.com/">Global-Host</a>
 
 ## Project Description ##
 
-Global Host links city guides and visitors.
+Global Host links city guides and visitors by common interests and language, allowing the visitor to create an itinerary with desired activities, and have the host update the itinerary with the best places in town for each activity that will be displayed on an interactive map.
 
 ### How to install the code locally
 
