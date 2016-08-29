@@ -9,7 +9,7 @@
   </tr>
 
   <tr>
-  <td><a href="https://github.com/phdewitte">Patrick Dewitte </a></a></td>
+  <td><a href="https://github.com/phdewitte">Patrick DeWitte </a></a></td>
   <td><a href="https://github.com/Aslonski">Andrey Slonski</a></a></td>
   <td><a href="https://github.com/rmdemp">Ryan Dempsey</a></td>
   <td><a href="https://github.com/gabezurita">Gabriel Zurita</a></td>
